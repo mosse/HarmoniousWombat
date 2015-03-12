@@ -1,33 +1,15 @@
-var GithubStrategy = require('passport-github').Strategy;
-var passport = require('passport');
+var mongoose = require('mongoose');
 var express = require('express');
+
+// Serve client and connect to mongo
+var connectionUrl = process.env.CUSTOMCONNSTR_MONGOLAB_URI || 'mongodb://localhost/recalljs';
+mongoose.connect(connectionUrl);
 var app = express();
-
 app.use(express.static(__dirname+'/../client'));
-app.use(passport.initialize());
-app.use(passport.session());
 
-app.get('/auth/github', passport.authenticate('github'), function(){});
-app.get('/auth/github/callback', passport.authenticate('github', {failureRedirect: '/login'}), function(req, res){
-  res.send('GG You logged in as '+req.user.username);
-});
-
-// Passport stuff
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
-
-var keys = {
-   clientID: process.env.gID,
-   clientSecret: process.env.gSecret,
-   callbackURL: process.env.gCallback
-};
-
-passport.use(new GithubStrategy(keys, function(accessToken, refreshToken, profile, done) {
-  done(null, profile);
-}));
+// Routing
+var userRouter = express.Router();
+app.use('/users', userRouter);
+require('./users/userrouter.js')(userRouter);
 
 module.exports = app;
