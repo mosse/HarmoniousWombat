@@ -21,9 +21,9 @@ passport.deserializeUser(function(user, done) {
 });
 
 var keys = {
-   clientID: '903ed8604ac9187b6eec',
-   clientSecret: 'c583efccacfd2d75b1b428efc9531496b86040d2',
-   callbackURL: 'http://localhost:9000/auth/github/callback'
+   clientID: process.env.gID,
+   clientSecret: process.env.gSecret,
+   callbackURL: 'http://testinggreenfield.azurewebsites.net/auth/github/callback'
 };
 
 passport.use(new GithubStrategy(keys, function(accessToken, refreshToken, profile, done) {
