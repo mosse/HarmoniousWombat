@@ -9,8 +9,8 @@ function HomeController($scope, $window, $location, Auth){
   $scope.login = function () {
     $scope.error = undefined;
     Auth.login($scope.user)
-      .then(function (token) {
-        $window.localStorage.setItem('com.recalljs', token);
+      .then(function (data) {
+        $window.localStorage.setItem('com.recalljs', data.token);
         $location.path('/dashboard');
       })
       .catch(function (error) {
@@ -21,8 +21,8 @@ function HomeController($scope, $window, $location, Auth){
   $scope.signup = function () {
     $scope.error = undefined;
     Auth.signup($scope.user)
-      .then(function (token) {
-        $window.localStorage.setItem('com.recalljs', token);
+      .then(function (data) {
+        $window.localStorage.setItem('com.recalljs', data.token);
         $location.path('/dashboard');
       })
       .catch(function (error) {

@@ -11,14 +11,14 @@ module.exports = function (app) {
         data.comparePasswords(password, function(isMatch){
           if (isMatch){
             var token = jwt.encode(username, 'secret');
-            res.json({token: token});
-            console.log(username, 'logged in');
+            res.json({token: token, data: data});
+            console.log('Logged in:', username);
           } else {
-            console.log(username, 'incorrect password');
+            console.log('Incorrect password:', username);
           }
         });
       } else {
-        console.log(username, 'isnt a user');
+        console.log('Invalid a username:', username);
       }
     });
   });
@@ -28,7 +28,7 @@ module.exports = function (app) {
     var password = req.body.password;
     User.findOne({username: username}, function(err, data){
       if (data){
-        console.log('User already exists!');
+        console.log('Username unavailable:', username);
         next();
       } else {
         var newUser = {
@@ -37,10 +37,12 @@ module.exports = function (app) {
         };
         User.create(newUser, function(err){
           if (err){
-            console.log(err);
+            console.log('Failed to sign up:', username);
+          } else {
+            console.log('Signed up:', username);
+            var token = jwt.encode(username, 'secret');
+            res.json({token: token, data: newUser});
           }
-          var token = jwt.encode(username, 'secret');
-          res.json({token: token});
         });
       }
     });
