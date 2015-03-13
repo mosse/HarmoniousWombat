@@ -14,21 +14,19 @@
         RECALL JS
         </div>
         <ul class="site-nav inline-block-list">
-        <li>About us</li>
-        <li>Help</li>
-        <li class="login"><a href="#/signin">Login</a></li>
+        <li class="dashboard"><a href="#/dashboard">Dashboard</a></li>
+        <li class="home"><a href="#/">Home</a></li>
+        <li class="login"><a href="#/login">Login</a></li>
         </ul>
       </div>
       <div ng-view></div>
-      
     </div>
-
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/components/landing/homeService.js"></script>
-    <script src="app/components/landing/homeController.js"></script>
+    <script src="app/components/home/AuthService.js"></script>
+    <script src="app/components/home/homeController.js"></script>
     <script src="app/components/dashboard/dashboardController.js"></script>
-    <script src="app/components/dashboard/editorController.js"></script>
+    <script src="app/components/editor/editorController.js"></script>
   </body>
 </html>
