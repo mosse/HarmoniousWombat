@@ -1,10 +1,14 @@
 var bcrypt   = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
+var temp = "{\"username\":\"cgrinaldi\",\"password\":\"123\",\"email\":\"email@gmail.com\",\"firstName\":\"Bob\",\"lastName\":\"Dole\",\"problems\":[{\"title\":\"Add Two Numbers\",\"functionName\":\"addNums\",\"examples\":[\"addNums(10, 2) === 12 // returns true\"],\"attempts\":[{\"timeStarted\":1426273981607,\"timeSubmitted\":1426274101607,\"rating\":\"easy\",\"percentTestsPassed\":0.5,\"numRuns\":3},{\"timeStarted\":1426273981607,\"timeSubmitted\":1426274101607,\"rating\":\"hard\",\"percentTestsPassed\":0.1,\"numRuns\":10}],\"tests\":[[\"TEST 1 INPUT\",\"TEST 1 OUTPUT\"],[\"TEST 2 INPUT\",\"TEST 2 OUTPUT\"]]},{\"title\":\"Subtract Two Numbers\",\"functionName\":\"subtractNums\",\"examples\":[\"subtractNums(10, 2) === 8 // returns true\"],\"attempts\":[{\"timeStarted\":1426273981607,\"timeSubmitted\":1426274101607,\"rating\":\"easy\",\"percentTestsPassed\":0.5,\"numRuns\":3},{\"timeStarted\":1426273981607,\"timeSubmitted\":1426274101607,\"rating\":\"hard\",\"percentTestsPassed\":0.1,\"numRuns\":10}],\"tests\":[[\"TEST 1 INPUT\",\"TEST 1 OUTPUT\"],[\"TEST 2 INPUT\",\"TEST 2 OUTPUT\"]]}]}"
 
 var UserSchema = new mongoose.Schema({
   username: String,
   password: String,
-  salt: String,
+  problems: {
+    type:Array,
+    default: JSON.parse(temp).problems
+  }
 });
 
 UserSchema.methods.comparePasswords = function (candidatePassword, callback) {
