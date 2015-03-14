@@ -15,10 +15,12 @@ module.exports = function (app) {
             console.log('Logged in:', username);
           } else {
             console.log('Incorrect password:', username);
+            return next('Incorrect password');
           }
         });
       } else {
-        console.log('Invalid a username:', username);
+        console.log('Invalid username:', username);
+        return next('Invalid username');
       }
     });
   });
@@ -29,7 +31,7 @@ module.exports = function (app) {
     User.findOne({username: username}, function(err, data){
       if (data){
         console.log('Username unavailable:', username);
-        next();
+        return next('Username unavailable');
       } else {
         var newUser = {
           username: username,
@@ -38,6 +40,7 @@ module.exports = function (app) {
         User.create(newUser, function(err){
           if (err){
             console.log('Failed to sign up:', username);
+            return next('Internal Error');
           } else {
             console.log('Signed up:', username);
             var token = jwt.encode(username, 'secret');
