@@ -15,7 +15,7 @@ function HomeController($scope, $window, $location, Auth, UserData){
         $location.path('/dashboard');
       })
       .catch(function (error) {
-        $scope.error = error.data.error;
+        $scope.error = error.data;
       });
   };
 
@@ -28,7 +28,7 @@ function HomeController($scope, $window, $location, Auth, UserData){
         $location.path('/dashboard');
       })
       .catch(function (error) {
-        $scope.error = error.data.error;
+        $scope.error = error.data;
       });
   };
 
