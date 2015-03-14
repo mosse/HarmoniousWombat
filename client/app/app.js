@@ -22,6 +22,11 @@ angular.module('RecallJS', ['ngRoute'])
         controller: 'DashboardController',
         authenticate: true
       })
+      .when('/editor', {
+        templateUrl: 'app/components/editor/editorView.html',
+        controller: 'EditorController',
+        authenticate: true
+      })
     $httpProvider.interceptors.push('AttachTokens');
   })
   .factory('AttachTokens', function ($window) {
