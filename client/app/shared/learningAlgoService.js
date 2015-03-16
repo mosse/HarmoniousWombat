@@ -23,6 +23,23 @@ function LearningAlgo(UserData) {
     return Math.pow(2, daysSince/5); // weight will double every five days
   }                                  // since the last attempt
 
+  function calcProgressWeight(problem) {
+
+    function calcAverageRating(attempts, numToAverage) {
+      // identify the most recent ratings
+      var recentAttempts = attempts.slice(-numToAverage);
+      var ratings = recentAttempts.map(function(attempt){
+        return attempt.rating;
+      });
+
+      // calculate the average of most recent ratings
+      var sum = ratings.reduce(function(tot, curr){
+        return tot + curr;
+      });
+      return sum / ratings.length;
+    }
+  }
+
   // helper function to convert milliseconds to days
   function convertMStoDAYS(numMS) {
     return Math.round(numMS / (1000 * 60 * 60 * 24));
