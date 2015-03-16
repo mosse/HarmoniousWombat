@@ -48,6 +48,12 @@ function LearningAlgo(UserData) {
                                          // average rating of past 10 increases by 0.2
   }
 
+  function calcEffortWeight(problem) {
+    var mostRecentAttempt = problem.attempts.slice(-1)[0];
+    var rating = mostRecentAttempt.rating;
+    return rating ? 1 : 10; // if rating is non-zero, return 1, else 10
+  }
+
   // helper function to convert milliseconds to days
   function convertMStoDAYS(numMS) {
     return Math.round(numMS / (1000 * 60 * 60 * 24));
