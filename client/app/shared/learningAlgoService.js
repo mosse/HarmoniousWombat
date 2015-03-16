@@ -14,7 +14,7 @@ function LearningAlgo(UserData) {
   }
 
   // helper function to convert milliseconds to days
-  var convertMStoDAYS = function(numMS) {
-    return numMS / (1000 * 60 * 60 * 24);
-  };
+  function convertMStoDAYS(numMS) {
+    return Math.round(numMS / (1000 * 60 * 60 * 24));
+  }
 }
