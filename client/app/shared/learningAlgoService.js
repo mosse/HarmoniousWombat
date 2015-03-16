@@ -48,10 +48,8 @@ function LearningAlgo(UserData) {
         return attempt.rating;
       });
       // calculate the average of most recent ratings
-      var sum = ratings.reduce(function(tot, curr){
-        return tot + curr;
-      });
-      return sum / numToAverage; // NOTE: May be dividing by more than the number of attempts
+      var sumRatings = sum(ratings);
+      return sumRatings / numToAverage; // NOTE: May be dividing by more than the number of attempts
                                  // which is what we want so that we aren't biased against seeing newer problems
     }
     // calculate and return weight
