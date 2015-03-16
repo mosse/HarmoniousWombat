@@ -70,4 +70,10 @@ function LearningAlgo(UserData) {
   function convertMStoDAYS(numMS) {
     return Math.round(numMS / (1000 * 60 * 60 * 24));
   }
+
+  function sum(numbers) {
+    return numbers.reduce(function(tot, curr){
+      return tot + curr;
+    });
+  }
 }
