@@ -5,14 +5,15 @@ angular.module('RecallJS')
   .factory('LearningAlgo', LearningAlgo);
 
 function LearningAlgo(UserData) {
+  // obtain the problems sent over by the server
+  var problems = UserData.data.problems;
+
   // expose methods and properties to rest of app
   return {
     getProblem: getProblem
   };
 
   function getProblem() {
-    // obtain the problems sent over by the server
-    var problems = UserData.data.problems;
 
     // error checking to make sure user has problems
     if (problems.length === 0) {
@@ -22,7 +23,7 @@ function LearningAlgo(UserData) {
     // sample from user's problems based on algorithm
     var samplingDist = createSamplingDist(calculateWeights(problems));
     var rand = Math.random();
-    for (var i = 0; i < samplingDist.length; i++) {
+    for (var i = 0; i < samplingDist.length; i++) {   // TODO: think about using binary search instead
       var weight = samplingDist[i][0];
       var problem = samplingDist[i][1];
       if (rand <= weight) {
