@@ -16,6 +16,18 @@ function LearningAlgo(UserData) {
     return data.problems;
   }
 
+  function calculateWeights(problems) {
+    return problems.map(function(problem){
+      // calculate total weight
+      var ageWeight = calcAgeWeight(problem);
+      var progressWeight = calcProgressWeight(problem);
+      var effortWeight = calcEffortWeight(problem);
+
+      var weight = ageWeight * progressWeight * effortWeight;
+      return [weight, problem];
+    });
+  }
+
   function calcAgeWeight(problem) {
     // identify number of days since last attempt
     var timeLastAttempt = problem.attempts.slice(-1)[0].timeSubmitted; // assuming last attempt is most recent
