@@ -27,6 +27,7 @@ function LearningAlgo(UserData) {
       var weight = samplingDist[i][0];
       var problem = samplingDist[i][1];
       if (rand <= weight) {
+        removeProblem(problem.title); // don't want the user to see this problem in current session
         return problem;
       }
     }
@@ -105,6 +106,15 @@ function LearningAlgo(UserData) {
     var mostRecentAttempt = problem.attempts.slice(-1)[0];
     var rating = mostRecentAttempt.rating;
     return rating ? 1 : 10; // if rating is non-zero, return 1, else 10
+  }
+
+  function removeProblem(title) {
+    for (var i = 0; i < problems.length; i++) {
+      var problem = problems[i];
+      if (problem.title === title) {
+        problems.splice(i, 1);
+      }
+    }
   }
 
   // helper function to convert milliseconds to days
