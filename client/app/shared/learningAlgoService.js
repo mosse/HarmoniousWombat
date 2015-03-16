@@ -15,9 +15,9 @@ function LearningAlgo(UserData) {
 
   function getProblem() {
 
-    // error checking to make sure user has problems
+    // return null if no new problems available for the user
     if (problems.length === 0) {
-      return [];
+      return null;
     }
 
     // sample from user's problems based on algorithm
