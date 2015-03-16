@@ -24,20 +24,25 @@ function LearningAlgo(UserData) {
   }                                  // since the last attempt
 
   function calcProgressWeight(problem) {
-
+    // helper function to calculate the average of the most recent ratings
     function calcAverageRating(attempts, numToAverage) {
+
       // identify the most recent ratings
       var recentAttempts = attempts.slice(-numToAverage);
       var ratings = recentAttempts.map(function(attempt){
         return attempt.rating;
       });
-
       // calculate the average of most recent ratings
       var sum = ratings.reduce(function(tot, curr){
         return tot + curr;
       });
-      return sum / ratings.length;
+      return sum / numToAverage; // NOTE: May be dividing by more than the number of attempts
+                                 // which is what we want so that we aren't biased against seeing newer problems
     }
+    // calculate and return weight
+    var avgRating = calcAverageRating(problem.attempts, 10); // calculate avg rating of last 10 attempts
+    return Math.pow(0.5, 5 * avgRating); // weight will halve every time the
+                                         // average rating of past 10 increases by 0.2
   }
 
   // helper function to convert milliseconds to days
