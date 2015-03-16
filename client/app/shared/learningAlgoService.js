@@ -16,6 +16,32 @@ function LearningAlgo(UserData) {
     return data.problems;
   }
 
+  function createSamplingDist(weightedProblems) {
+    // normalizing weights to sum to 1
+    var weights = weightedProblems.map(function(problem){
+      return problem[0];
+    });
+
+    // create array of tuples [normWeight, problem]
+    var tot = sum(weights);
+    var normProblems = weightedProblems.map(function(problem){
+      var normWeight = problem[0] / tot;
+      return [normWeight, problem[1]];
+    });
+
+    // sort increasing by normWeight
+    var sortedNormProblems = normProblems.sort(function(a,b){
+      return a[0] - b[0];
+    });
+
+    // create the cumulative distribution function
+    var currCum = 0;
+    return sortedNormProblems.map(function(problem){
+      currCum += problem[0];
+      return [currCum, problem[1]];
+    });
+  }
+
   function calculateWeights(problems) {
     return problems.map(function(problem){
       // calculate total weight
