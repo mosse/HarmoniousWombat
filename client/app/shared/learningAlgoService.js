@@ -1,3 +1,6 @@
+// TODO: Change the data model so that a user's problem ratings are mapped
+//       to a float
+
 angular.module('RecallJS')
   .factory('LearningAlgo', LearningAlgo);
 
