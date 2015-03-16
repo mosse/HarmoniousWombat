@@ -7,13 +7,29 @@ angular.module('RecallJS')
 function LearningAlgo(UserData) {
   // expose methods and properties to rest of app
   return {
-    getProblems: getProblems
+    getProblem: getProblem
   };
 
-  // simple function to pass along user's problems
-  function getProblems() {
-    var data = UserData.data;
-    return data.problems;
+  function getProblem() {
+    // obtain the problems sent over by the server
+    var problems = UserData.data.problems;
+
+    // error checking to make sure user has problems
+    if (problems.length === 0) {
+      return [];
+    }
+
+    // sample from user's problems based on algorithm
+    var samplingDist = createSamplingDist(calculateWeights(problems));
+    var rand = Math.random();
+    for (var i = 0; i < samplingDist.length; i++) {
+      var weight = samplingDist[i][0];
+      var problem = samplingDist[i][1];
+      if (rand <= weight) {
+        return problem;
+      }
+    }
+    throw new Error("Shouldn't get here since a problem should always be selected");
   }
 
   function createSamplingDist(weightedProblems) {
