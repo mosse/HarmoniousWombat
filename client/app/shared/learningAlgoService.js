@@ -9,14 +9,17 @@ function LearningAlgo(UserData) {
   var problems = UserData.data.problems;
 
   // expose methods and properties to rest of app
-  return {
-    getProblem: getProblem
+  var exposed = {
+    getProblem: getProblem,
+    currProblem: null
   };
+  return exposed;
 
   function getProblem() {
 
     // return null if no new problems available for the user
     if (problems.length === 0) {
+      exposed.currProblem = null;
       return null;
     }
 
@@ -28,6 +31,7 @@ function LearningAlgo(UserData) {
       var problem = samplingDist[i][1];
       if (rand <= weight) {
         removeProblem(problem.title); // don't want the user to see this problem in current session
+        exposed.currProblem = problem; // allow us to keep track of current problem
         return problem;
       }
     }
