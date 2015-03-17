@@ -4,7 +4,7 @@
   <p ng-repeat="example in examples">{{ example }}</p>
   <form>
   <!-- This textarea is replaced by CodeMirror's .fromTextArea method on itizialization -->
-    <textarea name="editor">{{ funcDeclaration }}</textarea>
+    <textarea ui-codemirror></textarea>
     <button class="btn btn-lg btn-default btn-block" type="submit">Test</button>
     <button class="btn btn-lg btn-default btn-block" type="submit">submit </button>
   </form>
