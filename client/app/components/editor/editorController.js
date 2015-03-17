@@ -7,10 +7,9 @@ angular.module('RecallJS')
     $scope.title = problem.title;
     $scope.prompt = 'PUT A PROMPT IN';
     $scope.examples = problem.examples;
-    var funcName = problem.functionName;
+    $scope.funcDeclaration = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
 
     CodeMirror(document.body, {
-      value: "var " + funcName + "(){};",
       mode:  "javascript"
     });
   });
