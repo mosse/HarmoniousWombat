@@ -5,7 +5,7 @@ angular.module('RecallJS')
     var problem = LearningAlgo.getProblem();
 
     $scope.title = problem.title;
-    $scope.prompt = 'PUT A PROMPT IN';
+    $scope.prompt = 'TODO: PUT A PROMPT IN';
     $scope.examples = problem.examples;
 
     //CodeMirror options set here. For full configuration options see http://codemirror.net/doc/manual.html
@@ -20,10 +20,10 @@ angular.module('RecallJS')
     $scope.code = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
 
     $scope.testCode = function(){
-      console.log("Here we test the code");
+      console.log("TODO: Here we test the code");
     };
 
     $scope.submitCode = function(){
-      console.log("Here we submit the code");
+      console.log("TODO: Here we submit the code");
     };
   });
