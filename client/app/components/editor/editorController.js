@@ -4,11 +4,11 @@ angular.module('RecallJS')
   .controller('EditorController', function($scope, LearningAlgo){
     var problem = LearningAlgo.getProblem();
 
-    console.log(problem);
-
     $scope.title = problem.title;
     $scope.prompt = 'PUT A PROMPT IN';
     $scope.examples = problem.examples;
+
+    //CodeMirror options set here. For full configuration options see http://codemirror.net/doc/manual.html
     $scope.cmOption = {
       lineWrapping : true,
       lineNumbers: true,
@@ -16,5 +16,14 @@ angular.module('RecallJS')
       indentUnit: 2,
       theme:'twilight',
     };
-    $scope.cmModel = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
+
+    $scope.code = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
+
+    $scope.testCode = function(){
+      console.log("Here we test the code");
+    };
+
+    $scope.submitCode = function(){
+      console.log("Here we submit the code");
+    };
   });

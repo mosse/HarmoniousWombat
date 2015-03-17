@@ -4,9 +4,9 @@
   <p ng-repeat="example in examples">{{ example }}</p>
   <form>
 
-    <textarea ui-codemirror="cmOption" ng-model="cmModel"></textarea>
+    <textarea ui-codemirror="cmOption" ng-model="code"></textarea>
     
-    <button class="btn btn-lg btn-default btn-block" type="submit">Test</button>
-    <button class="btn btn-lg btn-default btn-block" type="submit">Submit </button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testCode()">Test</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button>
   </form>
 </div>
