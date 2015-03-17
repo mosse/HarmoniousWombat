@@ -9,10 +9,12 @@ angular.module('RecallJS')
     $scope.title = problem.title;
     $scope.prompt = 'PUT A PROMPT IN';
     $scope.examples = problem.examples;
-    $scope.funcDeclaration = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
-
-    // CodeMirror.fromTextArea(editor);
-  // var editor = document.getElementByName("editor");
-  // CodeMirror.fromTextArea(editor);
-  console.log('success?');
+    $scope.cmOption = {
+      lineWrapping : true,
+      lineNumbers: true,
+      mode: 'javascript',
+      indentUnit: 2,
+      theme:'twilight',
+    };
+    $scope.cmModel = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
   });
