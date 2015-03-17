@@ -33,6 +33,7 @@ angular.module('RecallJS')
       // TODO: Calls testCode factory then displays results
       // $scope.code is data-bound to whatever the user edits and can be passed in to TestFactory for evaluation
       console.log($scope.code);
+      console.log("Here we test the code");
     };
 
     $scope.submitCode = function(){
