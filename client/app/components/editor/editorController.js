@@ -40,6 +40,6 @@ angular.module('RecallJS')
     };
 
     $scope.setRating = function(rating){
-
+      console.log("Here we rate the code");
     }
   });

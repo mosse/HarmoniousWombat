@@ -1,6 +1,6 @@
 angular.module('RecallJS')
   .factory('TestFactory', TestFactory);
 
-function TestFactory(codeInputString) {
-  
+function TestFactory() {
+  return {};
 }
