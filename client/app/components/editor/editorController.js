@@ -30,10 +30,14 @@ angular.module('RecallJS')
     $scope.code = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
 
     $scope.testResults = function(){
-      // TODO: Calls testCode factory then displays results
+      // Calls CodeEval factory in order to displays results
       // $scope.code is data-bound to whatever the user edits and can be passed in to CodeEval for evaluation
-      console.log($scope.code);
-      console.log("Here we test the code");
+      var results = CodeEval.run(LearningAlgo.currProblem, $scope.code);
+      $scope.numCorrect = results.numCorrect + " of " + results.numTests + " test(s) passed."
+      $scope.corrDetails = results.details.correct;
+      $scope.incorrDetails = results.details.incorrect;
+      // console.log(results);
+      // console.log(results.details.correct);
     };
 
     $scope.submitCode = function(){

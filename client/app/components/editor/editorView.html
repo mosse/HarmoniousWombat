@@ -3,6 +3,11 @@
   <h3>{{ title }}</h3>
   <p>{{ prompt }}</p>
   <p ng-repeat="example in examples">{{ example }}</p>
+  <p>{{ numCorrect }}</p>
+  <ul>
+    <li class="correct" ng-repeat="detail in corrDetails track by $index">{{ detail }}</li>
+    <li class="incorrect" ng-repeat="incorrDetail in incorrDetails track by $index">{{ incorrDetail }}</li>
+  </ul>
 
   <form>
     <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
