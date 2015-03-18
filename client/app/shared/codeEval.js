@@ -12,8 +12,17 @@ function CodeEval() {
     var funcName = problem.functionName;
 
     // creating a function object out of user provided code
-    code = code.split("=").slice(1).join("=");
-    if (code.slice(-1) === ";") { // removing semicolon if present
+    //
+    //   NOTE: Some considerations:
+    //     - we want a function object so that we can use `eval()` and
+    //       reference in our code (this requires slicing off `var myFunc = ...`)
+    //     - we want to allow the user to still perform variable assignment
+    //       within the function
+    //     - inner (nested) functions can still be used
+    //     - user cannot declare more than one function in the global scope
+
+    code = code.split("=").slice(1).join("="); // see first two points above
+    if (code.slice(-1) === ";") {
       code = code.slice(0,-1);
     }
     var submittedFunc = eval("(" + code + ")");
