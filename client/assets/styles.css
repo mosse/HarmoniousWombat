@@ -19,6 +19,9 @@ h1 {
   margin: 0 .5em .75em;
 }
 
+textarea {
+  color: black;
+}
 .container {
   margin: 0 auto;
   max-width: 760px;

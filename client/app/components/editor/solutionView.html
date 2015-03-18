@@ -1,0 +1,16 @@
+<div class="container">
+
+  <h3>{{ title }}</h3>
+  <p>{{ prompt }}</p>
+  <p ng-repeat="example in examples">{{ example }}</p>
+
+  <form>
+    <textarea ui-codemirror="cmSolution"></textarea>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(1)">1</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(2)">2</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(3)">3</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(4)">4</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(5)">5</button>
+  </form>
+
+</div>

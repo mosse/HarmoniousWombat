@@ -1,6 +1,13 @@
 <div class="container">
-  <h2>Code Prompt</h2>
+
   <h3>{{ title }}</h3>
   <p>{{ prompt }}</p>
-  
+  <p ng-repeat="example in examples">{{ example }}</p>
+
+  <form>
+    <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button>
+  </form>
+
 </div>

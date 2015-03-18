@@ -1,4 +1,4 @@
-angular.module('RecallJS', ['ngRoute'])
+angular.module('RecallJS', ['ngRoute', 'ui.codemirror'])
 
   .config(function($routeProvider, $httpProvider){
     $routeProvider
@@ -24,6 +24,11 @@ angular.module('RecallJS', ['ngRoute'])
       })
       .when('/editor', {
         templateUrl: 'app/components/editor/editorView.html',
+        controller: 'EditorController',
+        authenticate: true
+      })
+      .when('/solution', {
+        templateUrl: 'app/components/editor/solutionView.html',
         controller: 'EditorController',
         authenticate: true
       })
