@@ -7,6 +7,12 @@ function CodeEval() {
   };
 
   function run(tests, code) {
-    console.log('tests are', tests, 'code is', code);
+    // creating a function object out of user provided code
+    code = code.split("=")[1];
+    if (code.slice(-1) === ";") { // removing semicolon if present
+      code = code.slice(0,-1);
+    }
+    var submittedFunc = eval("(" + code + ")");
+    console.log(submittedFunc);
   }
 }
