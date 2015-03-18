@@ -1,7 +1,7 @@
 //TODO: Do we need to inject the CodeMirror dependency directly?
 
 angular.module('RecallJS')
-  .controller('EditorController', function($scope, LearningAlgo, CodeEval){
+  .controller('EditorController', function($scope, $location, LearningAlgo, CodeEval){
     var problem = LearningAlgo.getProblem();
 
     $scope.title = problem.title;
@@ -28,6 +28,8 @@ angular.module('RecallJS')
     };
 
     $scope.code = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
+    $scope.solution = 'TODO: We need a solution on problem object';
+
 
     $scope.testResults = function(){
       // Calls CodeEval factory in order to displays results
@@ -36,13 +38,14 @@ angular.module('RecallJS')
       $scope.numCorrect = results.numCorrect + " of " + results.numTests + " test(s) passed."
       $scope.corrDetails = results.details.correct;
       $scope.incorrDetails = results.details.incorrect;
-      // console.log(results);
-      // console.log(results.details.correct);
     };
 
     $scope.submitCode = function(){
-      // TODO: Calls testCode factory then displays solutionView
-      console.log("Here we submit the code");
+      var results = CodeEval.run(LearningAlgo.currProblem, $scope.code);
+      $scope.numCorrect = results.numCorrect + " of " + results.numTests + " test(s) passed."
+      $scope.corrDetails = results.details.correct;
+      $scope.incorrDetails = results.details.incorrect;
+      $location.path('/solution');
     };
 
     $scope.setRating = function(rating){
