@@ -27,6 +27,11 @@ angular.module('RecallJS', ['ngRoute', 'ui.codemirror'])
         controller: 'EditorController',
         authenticate: true
       })
+      .when('/solution', {
+        templateUrl: 'app/components/editor/solutionView.html',
+        controller: 'EditorController',
+        authenticate: true
+      })
     $httpProvider.interceptors.push('AttachTokens');
   })
   .factory('AttachTokens', function ($window) {
