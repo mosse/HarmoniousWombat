@@ -6,7 +6,10 @@ function CodeEval() {
     run: run
   };
 
-  function run(tests, code) {
+  function run(problem, code) {
+    // getting info from the problem
+    var tests = problem.tests;
+
     // creating a function object out of user provided code
     code = code.split("=")[1];
     if (code.slice(-1) === ";") { // removing semicolon if present
