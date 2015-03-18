@@ -1,7 +1,7 @@
 //TODO: Do we need to inject the CodeMirror dependency directly?
 
 angular.module('RecallJS')
-  .controller('EditorController', function($scope, LearningAlgo, TestFactory){
+  .controller('EditorController', function($scope, LearningAlgo, CodeEval){
     var problem = LearningAlgo.getProblem();
 
     $scope.title = problem.title;
@@ -31,7 +31,7 @@ angular.module('RecallJS')
 
     $scope.testResults = function(){
       // TODO: Calls testCode factory then displays results
-      // $scope.code is data-bound to whatever the user edits and can be passed in to TestFactory for evaluation
+      // $scope.code is data-bound to whatever the user edits and can be passed in to CodeEval for evaluation
       console.log($scope.code);
       console.log("Here we test the code");
     };
