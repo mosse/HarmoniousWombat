@@ -12,7 +12,7 @@ function CodeEval() {
     var funcName = problem.functionName;
 
     // creating a function object out of user provided code
-    code = code.split("=")[1];
+    code = code.split("=").slice(1).join("=");
     if (code.slice(-1) === ";") { // removing semicolon if present
       code = code.slice(0,-1);
     }
