@@ -13,6 +13,19 @@ function CodeEval() {
       code = code.slice(0,-1);
     }
     var submittedFunc = eval("(" + code + ")");
-    console.log(submittedFunc);
+
+    // iterate through our tests, using user provided function
+    var numCorrect = 0;
+    tests.forEach(function(test){
+      var args = test.input; // an array of arguments
+      var expected = test.output;
+      var actual = submittedFunc.apply(null, args);
+
+      // increment number correct based on passing test
+      if (actual === expected) {
+        numCorrect++;
+      }
+    });
+    return {numCorrect: numCorrect};
   }
 }
