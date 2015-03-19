@@ -1,31 +1,51 @@
 <div class="editor">
 
-  <h3>{{ title }}</h3>
-  <p>{{ prompt }}</p>
-  <p ng-repeat="example in examples">{{ example }}</p>
-  <p>{{ numCorrect }}</p>
-  <ul class="no-bullets">
-    <li class="correct" ng-repeat="detail in corrDetails track by $index">{{ detail }}</li>
-    <li class="incorrect" ng-repeat="incorrDetail in incorrDetails track by $index">{{ incorrDetail }}</li>
-  </ul>
+  <div class="row problem">
+    <div class="col-md-12">
+      <h2 class="text-center">{{ title }}</h2>
+      <p class="text-center">{{ prompt }}</p>
+    </div>
+  </div>
 
-  <form>
-    <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
-    <ul class="control-buttons" ng-show="!showSolution">
-      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button></li>
-      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button></li>
-    </ul>
-  </form>
+  <div class="row">
 
-  <form id="solution" ng-show="showSolution">
-    <textarea ui-codemirror="cmSolution" ng-model="solution"></textarea>
-    <ul class="rating-buttons">
-      <li><button class="btn btn-lg btn-default btn-block rating rating-missed" type="submit" ng-click="setRating(1)">Missed</button></li>
-      <li><button class="btn btn-lg btn-default btn-block rating rating-poor" type="submit" ng-click="setRating(2)">Poor</button></li>
-      <li><button class="btn btn-lg btn-default btn-block rating rating-decent" type="submit" ng-click="setRating(3)">Decent</button></li>
-      <li><button class="btn btn-lg btn-default btn-block rating rating-close" type="submit" ng-click="setRating(4)">Close</button></li>
-      <li><button class="btn btn-lg btn-default btn-block rating rating-perfect" type="submit" ng-click="setRating(5)">Perfect</button></li>
-    </ul>
-  </form>
+    <div class="col-md-6">
+      <form>
+        <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
+        <ul class="control-buttons" ng-show="!showSolution">
+          <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button></li>
+          <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button></li>
+        </ul>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <div class="problem-info" ng-show="!showSolution">
+        <p ng-repeat="example in examples">{{ example }}</p>
+
+        <p>{{ numCorrect }}</p>
+        <ul class="no-bullets">
+          <li class="correct" ng-repeat="detail in corrDetails track by $index">{{ detail }}</li>
+          <li class="incorrect" ng-repeat="incorrDetail in incorrDetails track by $index">{{ incorrDetail }}</li>
+        </ul>
+      </div>
+
+      <form id="solution" ng-show="showSolution">
+        <textarea ui-codemirror="cmSolution" ng-model="solution"></textarea>
+        <ul class="rating-buttons">
+          <li><button class="btn btn-lg btn-default btn-block rating rating-missed" type="submit" ng-click="setRating(0)">Missed</button></li>
+          <li><button class="btn btn-lg btn-default btn-block rating rating-poor" type="submit" ng-click="setRating(0.25)">Poor</button></li>
+          <li><button class="btn btn-lg btn-default btn-block rating rating-decent" type="submit" ng-click="setRating(0.5)">Decent</button></li>
+          <li><button class="btn btn-lg btn-default btn-block rating rating-close" type="submit" ng-click="setRating(0.75)">Close</button></li>
+          <li><button class="btn btn-lg btn-default btn-block rating rating-perfect" type="submit" ng-click="setRating(1)">Perfect</button></li>
+        </ul>
+      </form>
+    </div>
+
+  </div>
+
+
+
+
 
 </div>

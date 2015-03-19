@@ -54,7 +54,6 @@ ul.no-bullets {
   background-color: #f2f2f2;
   margin-bottom: 30px;
   padding: 5em 0;
-
 }
 
 .site-promo h1 {
@@ -232,18 +231,34 @@ ul.no-bullets {
 ***********************
 */
 
+.problem {
+  background-color: #f2f2f2;
+  margin-bottom: 25px;
+}
+
 .editor {
   text-align: left;
 }
 
 form {
-  width: 30em;
   margin: 0 auto 0 auto;
+  width: 37em;
 }
 
 .CodeMirror {
   text-align: left;
   position: left;
+  margin-bottom: 25px;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.problem-info {
+  background-color: #f2f2f2;
+  height: 300px;
+  width: 37em;
+  margin: 0 auto;
+  padding: 30px;
 }
 
 .control-buttons {
@@ -261,19 +276,19 @@ form {
 .rating-buttons {
   list-style-type: none;
   text-align: center;
+  padding: 0;
 }
 
 .rating-buttons li {
   display: inline-block;
   margin-right: 15px;
-  margin-top: 15px;
 }
 
 .rating {
   color: #333;
-  font-size: 14px;
+  font-size: 18px;
   text-shadow: none;
-  width: 80px;
+  width: 100px;
 }
 
 .rating-missed {
