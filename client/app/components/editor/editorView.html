@@ -11,8 +11,19 @@
 
   <form>
     <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
-    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button>
-    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button>
+    <div ng-show="!showSolution">
+      <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button>
+      <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button>
+    </div>
+  </form>
+
+  <form id="solution" ng-show="showSolution">
+    <textarea ui-codemirror="cmSolution" ng-model="solution"></textarea>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(1)">1</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(2)">2</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(3)">3</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(4)">4</button>
+    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(5)">5</button>
   </form>
 
 </div>

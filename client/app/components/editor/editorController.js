@@ -7,6 +7,7 @@ angular.module('RecallJS')
     $scope.title = problem.title;
     $scope.prompt = 'TODO: PUT A PROMPT IN';
     $scope.examples = problem.examples;
+    $scope.showSolution = false;
 
     //CodeMirror options set here. For full configuration options see http://codemirror.net/doc/manual.html
     $scope.cmEditor = {
@@ -45,7 +46,7 @@ angular.module('RecallJS')
       $scope.numCorrect = results.numCorrect + " of " + results.numTests + " test(s) passed."
       $scope.corrDetails = results.details.correct;
       $scope.incorrDetails = results.details.incorrect;
-      $location.path('/solution');
+      $scope.showSolution = true;
     };
 
     $scope.setRating = function(rating){
