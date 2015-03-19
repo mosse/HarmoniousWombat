@@ -69,6 +69,11 @@ ul.no-bullets {
   top: -100px;
 }
 
+#intro-info {
+  padding: 0 50px;
+  position: relative;
+  top: -60px;
+}
 
 /*
 ***********************
