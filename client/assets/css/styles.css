@@ -39,6 +39,10 @@ ul.no-bullets {
   list-style-type: none;
 }
 
+.push-right {
+  margin-right: 15px;
+}
+
 /*
 ***********************
 * Site Promotion
@@ -99,14 +103,14 @@ ul.no-bullets {
 }*/
 
 /* TODO: Why was this here? */;
-.site-nav {
+/*.site-nav {
   display: inline;
   -webkit-margin-before: 1em;
   -webkit-margin-after: 1em;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
   -webkit-padding-start: 40px;
-}
+}*/
 
 /*.inline-block-list li {
   display: inline-block;
@@ -165,6 +169,11 @@ ul.no-bullets {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.user-input {
+  width: 350px;
+  margin: 0 auto;
 }
 
 /*
