@@ -54,6 +54,7 @@ angular.module('RecallJS')
       $scope.numCorrect = results.numCorrect + " of " + results.numTests + " test(s) passed."
       $scope.corrDetails = results.details.correct;
       $scope.incorrDetails = results.details.incorrect;
+      $scope.showTestDetails = true;
     };
 
     $scope.submitCode = function(){
@@ -70,6 +71,7 @@ angular.module('RecallJS')
 
       // remove current problem and refresh view
       LearningAlgo.currProblem = null;
+      $scope.showTestDetails = false;
       init();
     };
   });
