@@ -73,13 +73,22 @@ ul.no-bullets {
   padding-right: 25px;
 }
 
+.nav a {
+  color: white;
+}
+
+.nav li a:focus, .nav li a:hover {
+  color: black;
+}
+
 .site-header {
-  height: 75px;
-  padding-top: 15px;
+  height: 62px;
+  padding-top: 10px;
+  background-color: #323232;
 }
 
 .site-logo {
-  color: #999;
+  color: #eee;
   float: left;
   font-size: 25px;
   font-weight: 700;
