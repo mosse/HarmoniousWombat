@@ -1,13 +1,31 @@
-<div class="container">
+<div class="editor">
 
   <h3>{{ title }}</h3>
   <p>{{ prompt }}</p>
   <p ng-repeat="example in examples">{{ example }}</p>
+  <p>{{ numCorrect }}</p>
+  <ul>
+    <li class="correct" ng-repeat="detail in corrDetails track by $index">{{ detail }}</li>
+    <li class="incorrect" ng-repeat="incorrDetail in incorrDetails track by $index">{{ incorrDetail }}</li>
+  </ul>
 
   <form>
     <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
-    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button>
-    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button>
+    <ul class="inline-block-list" ng-show="!showSolution">
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button></li>
+    </ul>
+  </form>
+
+  <form id="solution" ng-show="showSolution">
+    <textarea ui-codemirror="cmSolution" ng-model="solution"></textarea>
+    <ul class="inline-block-list">
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(1)">1</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(2)">2</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(3)">3</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(4)">4</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(5)">5</button></li>
+    </ul>
   </form>
 
 </div>

@@ -1,12 +1,13 @@
 //TODO: Do we need to inject the CodeMirror dependency directly?
 
 angular.module('RecallJS')
-  .controller('EditorController', function($scope, LearningAlgo, CodeEval){
+  .controller('EditorController', function($scope, $location, LearningAlgo, CodeEval){
     var problem = LearningAlgo.getProblem();
 
     $scope.title = problem.title;
     $scope.prompt = 'TODO: PUT A PROMPT IN';
     $scope.examples = problem.examples;
+    $scope.showSolution = false;
 
     //CodeMirror options set here. For full configuration options see http://codemirror.net/doc/manual.html
     $scope.cmEditor = {
@@ -28,17 +29,24 @@ angular.module('RecallJS')
     };
 
     $scope.code = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
+    $scope.solution = 'TODO: We need a solution on problem object';
+
 
     $scope.testResults = function(){
-      // TODO: Calls testCode factory then displays results
+      // Calls CodeEval factory in order to displays results
       // $scope.code is data-bound to whatever the user edits and can be passed in to CodeEval for evaluation
-      console.log($scope.code);
-      console.log("Here we test the code");
+      var results = CodeEval.run(LearningAlgo.currProblem, $scope.code);
+      $scope.numCorrect = results.numCorrect + " of " + results.numTests + " test(s) passed."
+      $scope.corrDetails = results.details.correct;
+      $scope.incorrDetails = results.details.incorrect;
     };
 
     $scope.submitCode = function(){
-      // TODO: Calls testCode factory then displays solutionView
-      console.log("Here we submit the code");
+      var results = CodeEval.run(LearningAlgo.currProblem, $scope.code);
+      $scope.numCorrect = results.numCorrect + " of " + results.numTests + " test(s) passed."
+      $scope.corrDetails = results.details.correct;
+      $scope.incorrDetails = results.details.incorrect;
+      $scope.showSolution = true;
     };
 
     $scope.setRating = function(rating){

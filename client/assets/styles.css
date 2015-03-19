@@ -22,14 +22,26 @@ h1 {
 textarea {
   color: black;
 }
+
+button {
+  display: inline-block;
+  max-width: 7em;
+
+}
+
 .container {
   margin: 0 auto;
-  max-width: 760px;
+  /*max-width: 760px;*/
   padding: 0 10px;
 }
 
+.editor {
+  padding-top: 30px;
+  text-align: left;
+}
+
 .site-header {
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .site-promo {
@@ -58,6 +70,16 @@ textarea {
   padding: 0;
 }
 
+.editorButtons {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  float: left;
+  list-style-type: none;
+  margin: 7px 0 0;
+  padding: 0;
+}
+
 ul {
   display: inline;
   -webkit-margin-before: 1em;
@@ -69,7 +91,7 @@ ul {
 
 form {
   width: 30em;
-  margin: 8em auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 /*.inline-block-list
@@ -130,4 +152,5 @@ form {
 
 .CodeMirror {
   text-align: left;
+  position: left;
 }
