@@ -246,5 +246,55 @@ form {
   position: left;
 }
 
+.control-buttons {
+  list-style-type: none;
+  text-align: center;
+}
+
+.control-buttons li {
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 15px;
+  width: 100px;
+}
+
+.rating-buttons {
+  list-style-type: none;
+  text-align: center;
+}
+
+.rating-buttons li {
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.rating {
+  color: #333;
+  font-size: 14px;
+  text-shadow: none;
+  width: 80px;
+}
+
+.rating-missed {
+  background-color: #FE4365;
+}
+
+.rating-poor {
+  background-color: #FC9D9A;
+}
+
+.rating-decent {
+  background-color: #F9CDAD;
+}
+
+.rating-close {
+  background-color: #C8C8A9;
+}
+
+.rating-perfect {
+  background-color: #83AF9B;
+}
+
 
 

@@ -11,7 +11,7 @@
 
   <form>
     <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
-    <ul class="inline-block-list" ng-show="!showSolution">
+    <ul class="control-buttons" ng-show="!showSolution">
       <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button></li>
       <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button></li>
     </ul>
@@ -19,12 +19,12 @@
 
   <form id="solution" ng-show="showSolution">
     <textarea ui-codemirror="cmSolution" ng-model="solution"></textarea>
-    <ul class="inline-block-list">
-      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(1)">1</button></li>
-      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(2)">2</button></li>
-      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(3)">3</button></li>
-      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(4)">4</button></li>
-      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(5)">5</button></li>
+    <ul class="rating-buttons">
+      <li><button class="btn btn-lg btn-default btn-block rating rating-missed" type="submit" ng-click="setRating(1)">Missed</button></li>
+      <li><button class="btn btn-lg btn-default btn-block rating rating-poor" type="submit" ng-click="setRating(2)">Poor</button></li>
+      <li><button class="btn btn-lg btn-default btn-block rating rating-decent" type="submit" ng-click="setRating(3)">Decent</button></li>
+      <li><button class="btn btn-lg btn-default btn-block rating rating-close" type="submit" ng-click="setRating(4)">Close</button></li>
+      <li><button class="btn btn-lg btn-default btn-block rating rating-perfect" type="submit" ng-click="setRating(5)">Perfect</button></li>
     </ul>
   </form>
 
