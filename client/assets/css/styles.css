@@ -1,0 +1,315 @@
+/*
+***********************
+* General
+***********************
+*/
+
+body {
+  /*background: url(../img/background.jpg) no-repeat center center fixed;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font: 17px/1.4 'Open Sans',sans-serif;
+  text-align: center;
+  color: #333;
+}
+
+h1 {
+  font-size: 3em;
+  line-height: 1.2em;
+  margin: 0 .5em .75em;
+}
+
+textarea {
+  color: black;
+}
+
+button {
+  display: inline-block;
+  max-width: 7em;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+ul.no-bullets {
+  list-style-type: none;
+}
+
+.push-right {
+  margin-right: 15px;
+}
+
+/*
+***********************
+* Site Promotion
+***********************
+*/
+
+.site-promo {
+  /*padding: 12em 0 5em;*/
+  background-color: #f2f2f2;
+  margin-bottom: 30px;
+  padding: 5em 0;
+}
+
+.site-promo h1 {
+  margin: 0 7em;
+  position: relative;
+  top: -15px;
+}
+
+#sign-up {
+  padding: 10px 30px;
+  position: relative;
+  top: -100px;
+}
+
+#intro-info {
+  padding: 0 50px;
+  position: relative;
+  top: -60px;
+}
+
+/*
+***********************
+* Navigation
+***********************
+*/
+
+.nav {
+  float: right;
+  padding-right: 25px;
+}
+
+.nav a {
+  color: white;
+}
+
+.nav li a:focus, .nav li a:hover {
+  color: black;
+}
+
+.site-header {
+  height: 62px;
+  padding-top: 10px;
+  background-color: #323232;
+}
+
+.site-logo {
+  color: #eee;
+  float: left;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 32px;
+  padding-left: 25px;
+  padding-top: 8px;
+  text-decoration: none;
+  text-shadow: 2px 2px 0 #000;
+  text-transform: uppercase;
+}
+
+.nav .login-or-out {
+  padding-left: 15px;
+}
+
+.nav .login-or-out a {
+  height: 43px;
+  width: 85px;
+}
+
+/* disabling hover for login/logout buttons */
+.nav .login-or-out a.btn-danger:hover,
+.nav .login-or-out a.btn-danger:focus {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.nav .login-or-out a.btn-success:hover,
+.nav .login-or-out a.btn-success:focus {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/*.site-nav {
+  color: #ffa000;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  float: right;
+  list-style-type: none;
+  margin: 7px 0 0;
+  padding: 0;
+}*/
+
+/* TODO: Why was this here? */;
+/*.site-nav {
+  display: inline;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+}*/
+
+/*.inline-block-list li {
+  display: inline-block;
+  margin: 0 0 0 1.5em;
+  padding: 0;
+  vertical-align: top;
+}*/
+
+/*
+ ***********************
+ * Sign In
+ ***********************
+ */
+
+ /* TODO: Why was this here? */;
+/*.pipe {
+  color: #ffa000;
+}*/
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 75px auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.user-input {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.container {
+  margin-top: 75px;
+}
+
+/*
+***********************
+* Editor
+***********************
+*/
+
+.problem {
+  background-color: #f2f2f2;
+  margin-bottom: 25px;
+}
+
+.editor {
+  text-align: left;
+}
+
+form {
+  margin: 0 auto 0 auto;
+  width: 37em;
+}
+
+.CodeMirror {
+  text-align: left;
+  position: left;
+  margin-bottom: 25px;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.problem-info {
+  background-color: #f2f2f2;
+  height: 300px;
+  width: 37em;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.control-buttons {
+  list-style-type: none;
+  text-align: center;
+}
+
+.control-buttons li {
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 15px;
+  width: 100px;
+}
+
+.rating-buttons {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+
+.rating-buttons li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.rating {
+  color: #333;
+  font-size: 18px;
+  text-shadow: none;
+  width: 100px;
+}
+
+.rating-missed {
+  background-color: #FE4365;
+}
+
+.rating-poor {
+  background-color: #FC9D9A;
+}
+
+.rating-decent {
+  background-color: #F9CDAD;
+}
+
+.rating-close {
+  background-color: #C8C8A9;
+}
+
+.rating-perfect {
+  background-color: #83AF9B;
+}
+
+
+

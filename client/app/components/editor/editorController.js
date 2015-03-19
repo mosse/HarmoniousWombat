@@ -2,35 +2,50 @@
 
 angular.module('RecallJS')
   .controller('EditorController', function($scope, $location, LearningAlgo, CodeEval){
-    var problem = LearningAlgo.getProblem();
 
-    $scope.title = problem.title;
-    $scope.prompt = 'TODO: PUT A PROMPT IN';
-    $scope.examples = problem.examples;
-    $scope.showSolution = false;
+    init();
 
-    //CodeMirror options set here. For full configuration options see http://codemirror.net/doc/manual.html
-    $scope.cmEditor = {
-      lineWrapping : true,
-      lineNumbers: true,
-      mode: 'javascript',
-      indentUnit: 2,
-      theme:'twilight',
-    };
+    function init() {
+      // we only want to get a new problem if we don't have a current one. Otherwise,
+      //   every time we switch routes (e.g., switching between library and practice),
+      //   we will get a new problem, which we don't want
+      var problem = LearningAlgo.currProblem || LearningAlgo.getProblem();
 
-    //Displays solution within a CodeMirror element, but disables focus/editi
-    $scope.cmSolution = {
-      lineWrapping : true,
-      lineNumbers: true,
-      mode: 'javascript',
-      indentUnit: 2,
-      theme:'twilight',
-      readOnly: 'nocursor',
-    };
+      // error checking in case if no problems are present
+      if (!problem) {
+        console.log("There are no problems left!");
+        // TODO: Have something here cause the view to display something that
+        // says, problems done! Would you like to add more, and link to library
+        return;
+      }
 
-    $scope.code = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
-    $scope.solution = 'TODO: We need a solution on problem object';
+      $scope.title = problem.title;
+      $scope.prompt = problem.prompt;
+      $scope.examples = problem.examples;
+      $scope.showSolution = false;
 
+      //CodeMirror options set here. For full configuration options see http://codemirror.net/doc/manual.html
+      $scope.cmEditor = {
+        lineWrapping : true,
+        lineNumbers: true,
+        mode: 'javascript',
+        indentUnit: 2,
+        theme:'twilight',
+      };
+
+      //Displays solution within a CodeMirror element, but disables focus/editi
+      $scope.cmSolution = {
+        lineWrapping : true,
+        lineNumbers: true,
+        mode: 'javascript',
+        indentUnit: 2,
+        theme:'twilight',
+        readOnly: 'nocursor',
+      };
+
+      $scope.code = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
+      $scope.solution = 'TODO: We need a solution on problem object';
+    }
 
     $scope.testResults = function(){
       // Calls CodeEval factory in order to displays results
@@ -39,6 +54,7 @@ angular.module('RecallJS')
       $scope.numCorrect = results.numCorrect + " of " + results.numTests + " test(s) passed."
       $scope.corrDetails = results.details.correct;
       $scope.incorrDetails = results.details.incorrect;
+      $scope.showTestDetails = true;
     };
 
     $scope.submitCode = function(){
@@ -50,6 +66,12 @@ angular.module('RecallJS')
     };
 
     $scope.setRating = function(rating){
-      console.log("Here we rate the code");
-    }
+      console.log("Problem was rated:", rating);
+      // TODO: Send data about problem back to server
+
+      // remove current problem and refresh view
+      LearningAlgo.currProblem = null;
+      $scope.showTestDetails = false;
+      init();
+    };
   });

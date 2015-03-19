@@ -1,9 +1,9 @@
 <div class="container">
   <form ng-submit='login()' class="form-signin">
     <h2 class="form-signin-heading">Please login</h2>
-    <input ng-model="user.username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-    <input ng-model="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <button class="btn btn-lg btn-default btn-block" type="submit">Login</button>
+    <input ng-model="user.username" type="text" id="inputUsername" class="form-control user-input" placeholder="Username" required autofocus>
+    <input ng-model="user.password" type="password" id="inputPassword" class="form-control user-input" placeholder="Password" required>
+    <button class="btn btn-lg btn-primary push-right" type="submit">Login</button>
     <a href="#/signup">Don't have an account? <strong>Signup</strong></a>
     <div ng-if="error" class="alert alert-danger" role="alert" ng-model="error">{{error}}</div>
   </form>

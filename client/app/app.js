@@ -27,6 +27,11 @@ angular.module('RecallJS', ['ngRoute', 'ui.codemirror'])
         controller: 'EditorController',
         authenticate: true
       })
+      .when('/library', {
+        templateUrl: 'app/components/library/libraryView.html',
+        controller: 'LibraryController',
+        authenticate: true
+      });
     $httpProvider.interceptors.push('AttachTokens');
   })
   .factory('AttachTokens', function ($window) {

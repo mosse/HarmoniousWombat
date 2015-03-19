@@ -7,20 +7,23 @@
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel='stylesheet' type='css' href="lib/codemirror/lib/codemirror.css">
     <link rel='stylesheet' type='css' href="lib/codemirror/theme/twilight.css">
-    <link rel='stylesheet' type='css' href="assets/styles.css">
+    <link rel='stylesheet' type='css' href="assets/css/styles.css">
 
 
   </head>
   <body>
-    <div class="container">
+    <div class="container-fullwidth">
       <div class ="site-header">
         <div class ="site-logo">
         RECALL JS
         </div>
-        <ul class="site-nav inline-block-list">
-        <li class="dashboard"><a href="#/dashboard">Dashboard</a></li>
-        <li class="home"><a href="#/">Home</a></li>
-        <li class="login"><a href="#/login">Login</a></li>
+        <ul class="nav nav-pills" ng-controller="HeaderController">
+          <li ng-class="{ active: isActive('/') }"><a href="#/">Home</a></li>
+          <li ng-class="{ active: isActive('/dashboard') }"><a href="#/dashboard">Dashboard</a></li>
+          <li ng-class="{ active: isActive('/editor') }"><a href="#/editor">Practice</a></li>
+          <li ng-class="{ active: isActive('/library') }"><a href="#/library">Library</a></li>
+          <li class="login-or-out" ng-if="!isLoggedIn()"><a href="#/login" class="btn btn-lg btn-success" type="submit">Login</a></li>
+          <li class="login-or-out" ng-if="isLoggedIn()"><a class="btn btn-lg btn-danger" type="submit" ng-click="logout()">Logout</a></li>
         </ul>
       </div>
       <div ng-view></div>
@@ -28,6 +31,7 @@
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/shared/header/headerController.js"></script>
     <script src="lib/codemirror/lib/codemirror.js"></script>
     <script src="lib/codemirror/mode/javascript/javascript.js"></script>
     <script type="text/javascript" src="lib/angular-ui-codemirror/ui-codemirror.js"></script>
@@ -38,5 +42,6 @@
     <script src="app/shared/userDataService.js"></script>
     <script src="app/components/dashboard/dashboardController.js"></script>
     <script src="app/components/editor/editorController.js"></script>
+    <script src="app/components/library/libraryController.js"></script>
   </body>
 </html>
