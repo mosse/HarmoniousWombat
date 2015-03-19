@@ -5,7 +5,7 @@ angular.module('RecallJS')
     var problem = LearningAlgo.getProblem();
 
     $scope.title = problem.title;
-    $scope.prompt = 'TODO: PUT A PROMPT IN';
+    $scope.prompt = problem.prompt;
     $scope.examples = problem.examples;
     $scope.showSolution = false;
 
@@ -50,6 +50,6 @@ angular.module('RecallJS')
     };
 
     $scope.setRating = function(rating){
-      console.log("Here we rate the code");
-    }
+      console.log("Problem was rated:", rating);
+    };
   });
