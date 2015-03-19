@@ -5,14 +5,14 @@
 */
 
 body {
-  background: url(../img/background.jpg) no-repeat center center fixed;
+  /*background: url(../img/background.jpg) no-repeat center center fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   font: 17px/1.4 'Open Sans',sans-serif;
   text-align: center;
-  color: white;
+  color: #333;
 }
 
 h1 {
@@ -46,7 +46,9 @@ ul.no-bullets {
 */
 
 .site-promo {
-  padding: 12em 0 5em;
+  /*padding: 12em 0 5em;*/
+  background-color: green;
+  padding: 5em 0;
 }
 
 /*
@@ -55,23 +57,28 @@ ul.no-bullets {
 ***********************
 */
 
+.nav {
+  float: right;
+}
+
 .site-header {
-  padding-top: 20px;
-  height: 60px;
+  height: 75px;
+  padding-top: 15px;
 }
 
 .site-logo {
-  color: #fff;
+  color: #999;
   float: left;
   font-size: 25px;
   font-weight: 700;
   line-height: 32px;
+  padding-top: 8px;
   text-decoration: none;
   text-shadow: 2px 2px 0 #000;
   text-transform: uppercase;
 }
 
-.site-nav {
+/*.site-nav {
   color: #ffa000;
   display: block;
   text-decoration: none;
@@ -80,7 +87,7 @@ ul.no-bullets {
   list-style-type: none;
   margin: 7px 0 0;
   padding: 0;
-}
+}*/
 
 /* TODO: Why was this here? */;
 .site-nav {
@@ -92,12 +99,12 @@ ul.no-bullets {
   -webkit-padding-start: 40px;
 }
 
-.inline-block-list li {
+/*.inline-block-list li {
   display: inline-block;
   margin: 0 0 0 1.5em;
   padding: 0;
   vertical-align: top;
-}
+}*/
 
 /*
  ***********************

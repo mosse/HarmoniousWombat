@@ -17,10 +17,10 @@
         <div class ="site-logo">
         RECALL JS
         </div>
-        <ul class="site-nav inline-block-list">
-        <li class="dashboard"><a href="#/dashboard">Dashboard</a></li>
-        <li class="home"><a href="#/">Home</a></li>
-        <li class="login"><a href="#/login">Login</a></li>
+        <ul class="nav nav-pills" ng-controller="HeaderController">
+          <li ng-class="{ active: isActive('/') }"><a href="#/">Home</a></li>
+          <li ng-class="{ active: isActive('/dashboard') }"><a href="#/dashboard">Dashboard</a></li>
+          <li ng-class="{ active: isActive('/login') }"><a href="#/login">Login</a></li>
         </ul>
       </div>
       <div ng-view></div>
@@ -28,6 +28,7 @@
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/shared/controllers.js"></script>
     <script src="lib/codemirror/lib/codemirror.js"></script>
     <script src="lib/codemirror/mode/javascript/javascript.js"></script>
     <script type="text/javascript" src="lib/angular-ui-codemirror/ui-codemirror.js"></script>
