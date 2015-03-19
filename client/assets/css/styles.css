@@ -198,6 +198,10 @@ ul.no-bullets {
   margin: 0 auto;
 }
 
+.container {
+  margin-top: 75px;
+}
+
 /*
 ***********************
 * Editor
