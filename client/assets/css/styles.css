@@ -59,6 +59,14 @@ ul.no-bullets {
 
 .site-promo h1 {
   margin: 0 7em;
+  position: relative;
+  top: -15px;
+}
+
+#sign-up {
+  padding: 10px 30px;
+  position: relative;
+  top: -100px;
 }
 
 
