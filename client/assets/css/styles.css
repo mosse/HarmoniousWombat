@@ -113,6 +113,30 @@ ul.no-bullets {
   text-transform: uppercase;
 }
 
+.nav .login-or-out {
+  padding-left: 15px;
+}
+
+.nav .login-or-out a {
+  height: 43px;
+  width: 85px;
+}
+
+/* disabling hover for login/logout buttons */
+.nav .login-or-out a.btn-danger:hover,
+.nav .login-or-out a.btn-danger:focus {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.nav .login-or-out a.btn-success:hover,
+.nav .login-or-out a.btn-success:focus {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
 /*.site-nav {
   color: #ffa000;
   display: block;

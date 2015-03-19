@@ -21,7 +21,8 @@
           <li ng-class="{ active: isActive('/') }"><a href="#/">Home</a></li>
           <li ng-class="{ active: isActive('/dashboard') }"><a href="#/dashboard">Dashboard</a></li>
           <li ng-class="{ active: isActive('/editor') }"><a href="#/editor">Practice</a></li>
-          <li ng-class="{ active: isActive('/login') }"><a href="#/login">Login</a></li>
+          <li class="login-or-out" ng-if="!isLoggedIn()"><a href="#/login" class="btn btn-lg btn-success" type="submit">Login</a></li>
+          <li class="login-or-out" ng-if="isLoggedIn()"><a class="btn btn-lg btn-danger" type="submit" ng-click="logout()">Logout</a></li>
         </ul>
       </div>
       <div ng-view></div>
