@@ -1,4 +1,4 @@
-<div class="container">
+<div class="editor">
 
   <h3>{{ title }}</h3>
   <p>{{ prompt }}</p>
@@ -11,19 +11,21 @@
 
   <form>
     <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
-    <div ng-show="!showSolution">
-      <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button>
-      <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button>
-    </div>
+    <ul class="inline-block-list" ng-show="!showSolution">
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="testResults()">Test</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="submitCode()">Submit </button></li>
+    </ul>
   </form>
 
   <form id="solution" ng-show="showSolution">
     <textarea ui-codemirror="cmSolution" ng-model="solution"></textarea>
-    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(1)">1</button>
-    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(2)">2</button>
-    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(3)">3</button>
-    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(4)">4</button>
-    <button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(5)">5</button>
+    <ul class="inline-block-list">
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(1)">1</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(2)">2</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(3)">3</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(4)">4</button></li>
+      <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="setRating(5)">5</button></li>
+    </ul>
   </form>
 
 </div>
