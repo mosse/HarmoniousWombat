@@ -2,7 +2,10 @@
 
 angular.module('RecallJS')
   .controller('EditorController', function($scope, $location, LearningAlgo, CodeEval){
-    var problem = LearningAlgo.getProblem();
+    // we only want to get a new problem if we don't have a current one. Otherwise,
+    //   every time we switch routes (e.g., switching between library and practice),
+    //   we will get a new problem, which we don't want
+    var problem = LearningAlgo.currProblem || LearningAlgo.getProblem();
 
     $scope.title = problem.title;
     $scope.prompt = problem.prompt;
