@@ -47,9 +47,16 @@ ul.no-bullets {
 
 .site-promo {
   /*padding: 12em 0 5em;*/
-  background-color: green;
+  background-color: #f2f2f2;
+  margin-bottom: 30px;
   padding: 5em 0;
+
 }
+
+.site-promo h1 {
+  margin: 0 7em;
+}
+
 
 /*
 ***********************
@@ -59,6 +66,7 @@ ul.no-bullets {
 
 .nav {
   float: right;
+  padding-right: 25px;
 }
 
 .site-header {
@@ -72,6 +80,7 @@ ul.no-bullets {
   font-size: 25px;
   font-weight: 700;
   line-height: 32px;
+  padding-left: 25px;
   padding-top: 8px;
   text-decoration: none;
   text-shadow: 2px 2px 0 #000;
