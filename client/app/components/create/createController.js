@@ -24,7 +24,16 @@ angular.module('RecallJS')
       $scope.examples.splice(idx, 1);
     };
 
-    // TODO: Refacto to use a service since it is repeated here
+    $scope.addTest = function(input, output){
+      $scope.tests.push({input: input, output: output});
+    };
+
+    $scope.removeTest = function(test) {
+      var idx = $scope.tests.indexOf(test);
+      $scope.tests.splice(idx, 1);
+    };
+
+    // TODO: Refactor to use a service since it is repeated here
     //  and in editorController. Move both cmEditor and cmSolution
     //CodeMirror options set here. For full configuration options see http://codemirror.net/doc/manual.html
     $scope.cmEditor = {
