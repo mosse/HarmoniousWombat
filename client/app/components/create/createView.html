@@ -35,7 +35,7 @@
 
       <!-- Problem Examples -->
       <ul>
-        <li ng-repeat="example in examples" ng-click="removeExample(example)">{{ example }}</li>
+        <li ng-repeat="example in examples track by $index" ng-click="removeExample(example)">{{ example }}</li>
         <!-- TODO: Have an icon that they click to remove the example -->
       </ul>
 

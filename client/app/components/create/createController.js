@@ -12,7 +12,11 @@ angular.module('RecallJS')
     ];
 
     $scope.addExample = function(example) {
-      $scope.examples.push(example);
+      // only want to add an example if it is unique
+      var idx = $scope.examples.indexOf(example);
+      if (idx === -1) {
+        $scope.examples.push(example);
+      }
     };
 
     $scope.removeExample = function(example) {
