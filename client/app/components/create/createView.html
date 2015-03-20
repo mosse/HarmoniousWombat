@@ -72,6 +72,19 @@
       </table>
 
     </accordion-group>
+
+    <accordion-group heading="Problem Solution">
+
+      <!-- Problem Solution -->
+      <form>
+        <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
+        <ul class="control-buttons" ng-show="!showSolution">
+          <li><button class="btn btn-lg btn-warning btn-block" type="submit" ng-click="testResults()">Test</button></li>
+          <li><button class="btn btn-lg btn-success btn-block" type="submit" ng-click="submitCode()">Submit </button></li>
+        </ul>
+      </form>
+
+    </accordion-group>
   </accordion>
 
 </div>
