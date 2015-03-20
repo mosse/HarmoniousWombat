@@ -25,7 +25,18 @@ angular.module('RecallJS')
     };
 
     $scope.addTest = function(input, output){
-      $scope.tests.push({input: input, output: output});
+      // only want to add a test input is unique
+      var newTest = {input: input, output: output};
+      var found = false;
+      $scope.tests.forEach(function(test){
+        if (test.input === newTest.input) {
+          found = true;
+        }
+      });
+
+      if (!found) {
+        $scope.tests.push(newTest);
+      }
     };
 
     $scope.removeTest = function(test) {
