@@ -31,6 +31,27 @@
       </form>
     </accordion-group>
 
+    <accordion-group heading="Problem Examples">
+
+      <!-- Problem Examples -->
+      <ul>
+        <li ng-repeat="example in examples">{{ example }}</li>
+      </ul>
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputExample" class="control-label col-md-3">Add Example</label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" id="inputExample" placeholder="Enter example string" ng-model="example">
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-lg btn-success" type="submit" ng-click="addExample(example)">Add</button>
+          </div>
+        </div>
+      </form>
+
+    </accordion-group>
+
     <accordion-group heading="Problem Tests">
 
       <!-- Problem Tests -->
