@@ -31,6 +31,11 @@ angular.module('RecallJS', ['ngRoute', 'ui.codemirror'])
         templateUrl: 'app/components/library/libraryView.html',
         controller: 'LibraryController',
         authenticate: true
+      })
+      .when('/create', {
+        templateUrl: 'app/components/create/createView.html',
+        controller: 'CreateController',
+        authenticate: true
       });
     $httpProvider.interceptors.push('AttachTokens');
   })
