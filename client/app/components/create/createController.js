@@ -14,4 +14,9 @@ angular.module('RecallJS')
     $scope.addExample = function(example) {
       $scope.examples.push(example);
     };
+
+    $scope.removeExample = function(example) {
+      var idx = $scope.examples.indexOf(example);
+      $scope.examples.splice(idx, 1);
+    };
   });
