@@ -31,10 +31,10 @@
       </form>
     </accordion-group>
 
-    <accordion-group heading="Problem Examples">
+    <accordion-group heading="Problem Tests">
 
-      <!-- Problem Examples -->
-      <table id="submitExamples" class="table table-condensed">
+      <!-- Problem Tests -->
+      <table id="submitTests" class="table table-condensed">
         <thead>
           <tr>
             <th class="text-center">Inputs</th>
@@ -42,9 +42,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="example in examples">
-            <td>{{ example.input }}</td>
-            <td>{{ example.output }}</td>
+          <tr ng-repeat="test in tests">
+            <td>{{ test.input }}</td>
+            <td>{{ test.output }}</td>
           </tr>
         </tbody>
       </table>
