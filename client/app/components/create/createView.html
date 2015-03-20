@@ -25,4 +25,20 @@
       </div>
     </div>
   </form>
+
+  <!-- Problem Examples -->
+  <table id="submitExamples" class="table table-condensed">
+    <thead>
+      <tr>
+        <th class="text-center">Inputs</th>
+        <th class="text-center">Output</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="example in examples">
+        <td>{{ example.input }}</td>
+        <td>{{ example.output }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
