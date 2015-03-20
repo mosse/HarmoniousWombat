@@ -1,4 +1,4 @@
-angular.module('RecallJS', ['ngRoute', 'ui.codemirror'])
+angular.module('RecallJS', ['ngRoute', 'ui.bootstrap', 'ui.codemirror'])
 
   .config(function($routeProvider, $httpProvider){
     $routeProvider
