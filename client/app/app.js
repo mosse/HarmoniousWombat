@@ -1,4 +1,4 @@
-angular.module('RecallJS', ['ngRoute', 'ui.codemirror'])
+angular.module('RecallJS', ['ngRoute', 'ui.bootstrap', 'ui.codemirror'])
 
   .config(function($routeProvider, $httpProvider){
     $routeProvider
@@ -30,6 +30,11 @@ angular.module('RecallJS', ['ngRoute', 'ui.codemirror'])
       .when('/library', {
         templateUrl: 'app/components/library/libraryView.html',
         controller: 'LibraryController',
+        authenticate: true
+      })
+      .when('/create', {
+        templateUrl: 'app/components/create/createView.html',
+        controller: 'CreateController',
         authenticate: true
       });
     $httpProvider.interceptors.push('AttachTokens');

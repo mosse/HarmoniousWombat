@@ -21,6 +21,7 @@
           <li ng-class="{ active: isActive('/') }"><a href="#/">Home</a></li>
           <li ng-class="{ active: isActive('/dashboard') }"><a href="#/dashboard">Dashboard</a></li>
           <li ng-class="{ active: isActive('/editor') }"><a href="#/editor">Practice</a></li>
+          <li ng-class="{ active: isActive('/create') }"><a href="#/create">Create</a></li>
           <li ng-class="{ active: isActive('/library') }"><a href="#/library">Library</a></li>
           <li class="login-or-out" ng-if="!isLoggedIn()"><a href="#/login" class="btn btn-lg btn-success" type="submit">Login</a></li>
           <li class="login-or-out" ng-if="isLoggedIn()"><a class="btn btn-lg btn-danger" type="submit" ng-click="logout()">Logout</a></li>
@@ -30,6 +31,7 @@
     </div>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="app/app.js"></script>
     <script src="app/shared/header/headerController.js"></script>
     <script src="lib/codemirror/lib/codemirror.js"></script>
@@ -43,5 +45,6 @@
     <script src="app/components/dashboard/dashboardController.js"></script>
     <script src="app/components/editor/editorController.js"></script>
     <script src="app/components/library/libraryController.js"></script>
+    <script src="app/components/create/createController.js"></script>
   </body>
 </html>

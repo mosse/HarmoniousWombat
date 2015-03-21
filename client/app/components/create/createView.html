@@ -1,0 +1,109 @@
+<div class="container">
+  <h1>Create a Problem</h1>
+
+  <accordion>
+    <accordion-group heading="Basic Problem Information" is-open="true">
+
+      <form class="form-horizontal">
+        <!-- Problem Title -->
+        <div class="form-group">
+          <label for="inputTitle" class="control-label col-md-3">Problem Title</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="inputTitle" placeholder="Enter title here" ng-model="problem.title">
+          </div>
+        </div>
+
+        <!-- Problem Prompt -->
+        <div class="form-group">
+          <label for="inputPrompt" class="control-label col-md-3">Prompt</label>
+          <div class="col-md-9">
+            <textarea rows="5" class="form-control" id="inputPrompt" placeholder="Enter prompt here" ng-model="problem.prompt"></textarea>
+          </div>
+        </div>
+
+        <!-- Function Name -->
+        <div class="form-group">
+          <label for="inputFuncName" class="control-label col-md-3">Function Name</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="inputFuncName" placeholder="Enter function name here" ng-model="problem.funcName">
+          </div>
+        </div>
+      </form>
+    </accordion-group>
+
+    <accordion-group heading="Problem Examples">
+
+      <!-- Problem Examples -->
+      <ul class="no-bullets">
+        <li ng-repeat="example in examples track by $index" ng-click="removeExample(example)">{{ example }}</li>
+        <!-- TODO: Have an icon that they click to remove the example -->
+      </ul>
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputExample" class="control-label col-md-3">Add Example</label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" id="inputExample" placeholder="Enter example string" ng-model="example">
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-lg btn-success" type="submit" ng-click="addExample(example)">Add</button>
+          </div>
+        </div>
+      </form>
+
+    </accordion-group>
+
+    <accordion-group heading="Problem Tests">
+
+      <!-- Problem Tests -->
+      <table id="submitTests" class="table table-condensed">
+        <thead>
+          <tr>
+            <th class="text-center">Inputs</th>
+            <th class="text-center">Output</th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- TODO: Have an icon they can click to remove test -->
+          <tr ng-repeat="test in tests" ng-click="removeTest(test)">
+            <td>{{ test.input }}</td>
+            <td>{{ test.output }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputTest" class="control-label col-md-2">Input</label>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="inputTest" placeholder="Enter inputs here" required ng-model="testInput">
+          </div>
+
+          <label for="outputTest" class="control-label col-md-2">Output</label>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="outputTest" placeholder="Enter output here" required ng-model="testOutput">
+          </div>
+        </div>
+
+        <div class="form-group">
+        <button class="btn btn-lg btn-success" type="submit" ng-click="addTest(testInput, testOutput)">Submit</button>
+        </div>
+      </form>
+
+    </accordion-group>
+
+    <accordion-group heading="Problem Solution">
+
+      <!-- Problem Solution -->
+      <form>
+        <textarea ui-codemirror="cmEditor" ng-model="problem.soln"></textarea>
+        <ul class="control-buttons" ng-show="!showSolution">
+          <li><button class="btn btn-lg btn-warning btn-block" type="submit" ng-click="testResults()">Test</button></li>
+          <li><button class="btn btn-lg btn-success btn-block" type="submit" ng-click="submitProblem()">Submit</button></li>
+        </ul>
+      </form>
+
+    </accordion-group>
+  </accordion>
+
+</div>
