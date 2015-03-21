@@ -1,5 +1,10 @@
 angular.module('RecallJS')
   .controller('CreateController', function($scope){
+    // TODO: Will want to have this as a Factory to share with
+    // server and the Library
+    $scope.problem = {};
+    $scope.problems = [];
+
     $scope.tests = [
       {input: [1,2,3], output: 6},
       {input: [8,1,3], output: 10},
@@ -42,6 +47,13 @@ angular.module('RecallJS')
     $scope.removeTest = function(test) {
       var idx = $scope.tests.indexOf(test);
       $scope.tests.splice(idx, 1);
+    };
+
+    $scope.submitProblem = function() {
+      $scope.problem.examples = $scope.examples;
+      $scope.problem.tests = $scope.tests;
+      $scope.problems.push($scope.problem);
+      console.log($scope.problems);
     };
 
     // TODO: Refactor to use a service since it is repeated here

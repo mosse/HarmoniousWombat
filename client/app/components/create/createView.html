@@ -9,7 +9,7 @@
         <div class="form-group">
           <label for="inputTitle" class="control-label col-md-3">Problem Title</label>
           <div class="col-md-9">
-            <input type="text" class="form-control" id="inputTitle" placeholder="Enter title here">
+            <input type="text" class="form-control" id="inputTitle" placeholder="Enter title here" ng-model="problem.title">
           </div>
         </div>
 
@@ -17,7 +17,7 @@
         <div class="form-group">
           <label for="inputPrompt" class="control-label col-md-3">Prompt</label>
           <div class="col-md-9">
-            <textarea rows="5" class="form-control" id="inputPrompt" placeholder="Enter prompt here"></textarea>
+            <textarea rows="5" class="form-control" id="inputPrompt" placeholder="Enter prompt here" ng-model="problem.prompt"></textarea>
           </div>
         </div>
 
@@ -25,7 +25,7 @@
         <div class="form-group">
           <label for="inputFuncName" class="control-label col-md-3">Function Name</label>
           <div class="col-md-9">
-            <input type="text" class="form-control" id="inputFuncName" placeholder="Enter function name here">
+            <input type="text" class="form-control" id="inputFuncName" placeholder="Enter function name here" ng-model="problem.funcName">
           </div>
         </div>
       </form>
@@ -96,10 +96,10 @@
 
       <!-- Problem Solution -->
       <form>
-        <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
+        <textarea ui-codemirror="cmEditor" ng-model="problem.soln"></textarea>
         <ul class="control-buttons" ng-show="!showSolution">
           <li><button class="btn btn-lg btn-warning btn-block" type="submit" ng-click="testResults()">Test</button></li>
-          <li><button class="btn btn-lg btn-success btn-block" type="submit" ng-click="submitCode()">Submit </button></li>
+          <li><button class="btn btn-lg btn-success btn-block" type="submit" ng-click="submitProblem()">Submit</button></li>
         </ul>
       </form>
 
