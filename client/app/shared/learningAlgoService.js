@@ -12,7 +12,8 @@ function LearningAlgo($window) {
   var exposed = {
     getProblem: getProblem,
     currProblem: null,
-    calculateWeight: calculateWeight
+    calculateWeight: calculateWeight,
+    getLastAttemptDate: getLastAttemptDate
   };
   return exposed;
 
@@ -132,5 +133,12 @@ function LearningAlgo($window) {
     return numbers.reduce(function(tot, curr){
       return tot + curr;
     });
+  }
+
+  // TODO: Refactor and place in a utilities or stats Service
+  function getLastAttemptDate(problem) {
+    var attempts = problem.attempts;
+    var timeLastAttempt = attempts[attempts.length-1].timeSubmitted;
+    return timeLastAttempt;
   }
 }

@@ -9,16 +9,18 @@
         <th class="text-center"># of Attempts</th>
         <th class="text-center">Average Rating</th>
         <th class="text-center">Last Attempt</th>
+        <th class="text-center">Problem Weight</th>
       </tr>
     </thead>
     <tbody>
-    <!-- TODO: Have an icon they can click to remove test -->
+      <!-- TOOD: Order problems by weight -->
       <tr ng-repeat="problem in problems">
         <td>{{ problem.title }}</td>
         <td>{{ problem.prompt }}</td>
         <td>{{ problem.attempts.length }}</td>
         <td>TODO: Calculate average rating</td>
-        <td>TODO: Get the last attempt date</td>
+        <td>{{ lastAttempted(problem) }}</td> <!-- TODO: Display friendly date time -->
+        <td>{{ calcWeight(problem) }} </td>
       </tr>
     </tbody>
   </table>
