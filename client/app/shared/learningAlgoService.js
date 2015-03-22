@@ -11,7 +11,8 @@ function LearningAlgo($window) {
   // expose methods and properties to rest of app
   var exposed = {
     getProblem: getProblem,
-    currProblem: null
+    currProblem: null,
+    calculateWeight: calculateWeight
   };
   return exposed;
 
@@ -67,13 +68,14 @@ function LearningAlgo($window) {
   function calculateWeights(problems) {
     return problems.map(function(problem){
       // calculate total weight
-      var ageWeight = calcAgeWeight(problem);
-      var progressWeight = calcProgressWeight(problem);
-      var effortWeight = calcEffortWeight(problem);
-
-      var weight = ageWeight * progressWeight * effortWeight;
+      var weight = calculateWeight(problem);
       return [weight, problem];
     });
+  }
+
+  function calculateWeight(problem) {
+    return calcAgeWeight(problem) * calcProgressWeight(problem) *
+           calcEffortWeight(problem);
   }
 
   function calcAgeWeight(problem) {
