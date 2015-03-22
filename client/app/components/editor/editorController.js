@@ -16,6 +16,8 @@ angular.module('RecallJS')
         console.log("There are no problems left!");
         // TODO: Have something here cause the view to display something that
         // says, problems done! Would you like to add more, and link to library
+        $scope.problemsLeft = false;
+        console.log($scope.problemsLeft);
         return;
       }
 
@@ -23,6 +25,7 @@ angular.module('RecallJS')
       $scope.prompt = problem.prompt;
       $scope.examples = problem.examples;
       $scope.showSolution = false;
+      $scope.problemsLeft = true;
 
       //CodeMirror options set here. For full configuration options see http://codemirror.net/doc/manual.html
       $scope.cmEditor = {

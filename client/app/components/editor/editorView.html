@@ -1,6 +1,6 @@
 <div class="editor">
 
-  <div class="row problem">
+  <div class="row problem" ng-show="problemsLeft">
     <div class="col-md-12">
       <h2 class="text-center">{{ title }}</h2>
       <p class="text-center">{{ prompt }}</p>
@@ -9,7 +9,7 @@
 
   <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-md-6" ng-show="problemsLeft">
       <form>
         <textarea ui-codemirror="cmEditor" ng-model="code"></textarea>
         <ul class="control-buttons" ng-show="!showSolution">
@@ -19,7 +19,7 @@
       </form>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6" ng-show="problemsLeft">
       <div class="problem-info" ng-show="!showSolution">
         <p ng-repeat="example in examples">{{ example }}</p>
 
@@ -44,5 +44,9 @@
       </form>
     </div>
 
+  </div>
+
+  <div id="noProblems" ng-show="!problemsLeft">
+    <h3 class="text-center">You've finished all of today's problems. To add more, check out the library here.</h3>
   </div>
 </div>
