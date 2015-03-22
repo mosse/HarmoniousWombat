@@ -31,7 +31,6 @@ module.exports = function (app) {
 
   app.get('/getOwn/:username', function(req, res, next){
     User.findOne({username: req.params.username}, function(err, data){
-      console.log(err);
       res.send(data);
     });
   });

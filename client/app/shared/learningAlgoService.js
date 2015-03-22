@@ -4,7 +4,7 @@
 angular.module('RecallJS')
   .factory('LearningAlgo', LearningAlgo);
 
-function LearningAlgo(UserData, $window) {
+function LearningAlgo($window) {
   // obtain the problems sent over by the server
   var problems = JSON.parse($window.localStorage.getItem('com.recalljs')).problems;
 

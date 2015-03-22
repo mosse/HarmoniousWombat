@@ -1,5 +1,7 @@
 <div class="container">
   <h1>This is the dashboard!</h1>
-  <p> My problems: </p>
-  <p> {{ problems }} </p>
+  <h2> My problems: </h2>
+  <div class="list-group">
+    <a ng-repeat="problem in problems" class="list-group-item">{{ problem.title }}</a>
+  </div>
 </div>

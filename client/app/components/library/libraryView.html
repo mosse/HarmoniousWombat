@@ -1,4 +1,6 @@
 <div class="container">
   <h1>This is the library!</h1>
-  <p>{{ problems }}</p>
+  <div class="list-group">
+    <a ng-repeat="problem in problems" class="list-group-item">{{ problem.title }}</a>
+  </div>
 </div>
