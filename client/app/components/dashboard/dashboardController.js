@@ -15,4 +15,6 @@ angular.module('RecallJS')
             });
         });
     };
+
+    $scope.username = "TODO: Replace with actual username";
   });
