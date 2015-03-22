@@ -1,7 +1,7 @@
 angular.module('RecallJS')
   .factory('ProblemData', ProblemData);
 
-function ProblemData($http, UserData){
+function ProblemData($http, $window){
 
   return {
     addOwn: addOwn,
@@ -16,7 +16,7 @@ function ProblemData($http, UserData){
       method: 'POST',
       url: '/problems/addOwn',
       data: {
-        username: UserData.data.username,
+        username: JSON.parse($window.localStorage.getItem('com.recalljs')).username,
         problem: problem
       }
     });
@@ -27,7 +27,7 @@ function ProblemData($http, UserData){
       method: 'POST',
       url: '/problems/removeOwn',
       data: {
-        username: UserData.data.username,
+        username: JSON.parse($window.localStorage.getItem('com.recalljs')).username,
         problem: problem
       }
     });
@@ -44,10 +44,10 @@ function ProblemData($http, UserData){
   function getOwn(){
     return $http({
       method: 'GET',
-      url: '/problems/getOwn/'+UserData.data.username
+      url: '/problems/getOwn/'+JSON.parse($window.localStorage.getItem('com.recalljs')).username
     })
     .then(function (data) {
-      return data.data;
+      return data.data.problems;
     });
   }
 
@@ -57,7 +57,7 @@ function ProblemData($http, UserData){
       url: '/problems/getAll',
     })
     .then(function (data) {
-      return data;
+      return data.data;
     });
   }
 

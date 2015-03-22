@@ -1,7 +1,5 @@
 angular.module('RecallJS')
-  .controller('DashboardController', function($scope, Auth, ProblemData){
-    $scope.logout = Auth.signout;
-
+  .controller('DashboardController', function($window, $scope, Auth, ProblemData){
 
     ProblemData.getOwn()
       .then(function(problems){

@@ -10,7 +10,7 @@ function HomeController($scope, $window, $location, Auth, UserData){
     $scope.error = undefined;
     Auth.login($scope.user)
       .then(function (data) {
-        $window.localStorage.setItem('com.recalljs', data.token);
+        $window.localStorage.setItem('com.recalljs', JSON.stringify(data.data));
         UserData.data = data.data;
         $location.path('/dashboard');
       })
@@ -23,7 +23,7 @@ function HomeController($scope, $window, $location, Auth, UserData){
     $scope.error = undefined;
     Auth.signup($scope.user)
       .then(function (data) {
-        $window.localStorage.setItem('com.recalljs', data.token);
+        $window.localStorage.setItem('com.recalljs', JSON.stringify(data.data));
         UserData.data = data.data;
         $location.path('/dashboard');
       })
