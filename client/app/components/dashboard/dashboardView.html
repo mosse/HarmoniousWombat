@@ -1,3 +1,25 @@
 <div class="container">
   <h1>{{ username }}'s Dashboard</h1>
+
+  <table id="userProblems" class="table table-condensed">
+    <thead>
+      <tr>
+        <th class="text-center">Title</th>
+        <th class="text-center">Prompt</th>
+        <th class="text-center"># of Attempts</th>
+        <th class="text-center">Average Rating</th>
+        <th class="text-center">Last Attempt</th>
+      </tr>
+    </thead>
+    <tbody>
+    <!-- TODO: Have an icon they can click to remove test -->
+      <tr ng-repeat="problem in problems">
+        <td>{{ problem.title }}</td>
+        <td>{{ problem.prompt }}</td>
+        <td>{{ problem.attempts.length }}</td>
+        <td>TODO: Calculate average rating</td>
+        <td>TODO: Get the last attempt date</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
