@@ -1,5 +1,5 @@
 angular.module('RecallJS')
-  .controller('DashboardController', function($window, $scope, Auth, ProblemData){
+  .controller('DashboardController', function($window, $scope, Auth, ProblemData, LearningAlgo){
 
     ProblemData.getOwn()
       .then(function(problems){
