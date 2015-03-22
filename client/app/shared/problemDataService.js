@@ -19,6 +19,9 @@ function ProblemData($http, $window){
         username: JSON.parse($window.localStorage.getItem('com.recalljs')).username,
         problem: problem
       }
+    })
+    .then(function(data){
+      $window.localStorage.setItem('com.recalljs', JSON.stringify(data.data));
     });
   }
 
@@ -30,6 +33,9 @@ function ProblemData($http, $window){
         username: JSON.parse($window.localStorage.getItem('com.recalljs')).username,
         problem: problem
       }
+    })
+    .then(function(data){
+      $window.localStorage.setItem('com.recalljs', JSON.stringify(data.data));
     });
   }
 

@@ -7,8 +7,7 @@ function LibraryController($scope, ProblemData){
       $scope.problems = problems;
     });
 
-  // ProblemData.addOwn(TheProblem);
-
-  // ProblemData.removeOwn(TheProblem);
-
+  $scope.add = function(problem){
+    ProblemData.addOwn(problem);
+  };
 }

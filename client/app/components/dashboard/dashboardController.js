@@ -5,4 +5,14 @@ angular.module('RecallJS')
       .then(function(problems){
         $scope.problems = problems;
       });
+
+    $scope.remove = function(problem){
+      ProblemData.removeOwn(problem)
+        .then(function(){
+          ProblemData.getOwn()
+            .then(function(problems){
+              $scope.problems = problems;
+            });
+        });
+    };
   });
