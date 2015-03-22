@@ -12,7 +12,10 @@ app.use(express.static(__dirname+'/../client'));
 
 // Routing
 var userRouter = express.Router();
+var problemRouter = express.Router();
 app.use('/users', userRouter);
+app.use('/problems', problemRouter);
 require('./users/userRoutes.js')(userRouter);
+require('./problems/problemRoutes.js')(problemRouter);
 
 module.exports = app;
