@@ -53,7 +53,7 @@ angular.module('RecallJS')
       $scope.problem.examples = $scope.examples;
       $scope.problem.tests = $scope.tests;
       $scope.problems.push($scope.problem);
-      console.log($scope.problems);
+      // ProblemData.create around here
     };
 
     // TODO: Refactor to use a service since it is repeated here
