@@ -18,7 +18,7 @@
         <td>{{ problem.title }}</td>
         <td>{{ problem.prompt }}</td>
         <td>{{ problem.attempts.length }}</td>
-        <td>TODO: Calculate average rating</td>
+        <td>{{ avgRating(problem.attempts, 10) }}</td>
         <td>{{ lastAttempted(problem) }}</td> <!-- TODO: Display friendly date time -->
         <td>{{ calcWeight(problem) }} </td>
       </tr>

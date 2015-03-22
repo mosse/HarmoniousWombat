@@ -19,6 +19,7 @@ angular.module('RecallJS')
     $scope.username = "TODO: Replace with actual username";
     $scope.calcWeight = LearningAlgo.calculateWeight;
     $scope.lastAttempted = LearningAlgo.getLastAttemptDate;
+    $scope.avgRating = LearningAlgo.calcAverageRating;
     console.log($scope.problems);
 
     // Requirements
