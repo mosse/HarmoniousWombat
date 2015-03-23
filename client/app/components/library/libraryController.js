@@ -1,13 +1,22 @@
 angular.module('RecallJS')
-  .controller('LibraryController', LibraryController);
+  .controller('LibraryController', function($window, $scope, Auth, ProblemData, LearningAlgo){
 
-function LibraryController($scope, ProblemData){
-  ProblemData.getAll()
-    .then(function(problems){
-      $scope.problems = problems;
-    });
+    ProblemData.getAll()
+      .then(function(problems){
+        $scope.problems = problems;
+      });
 
-  $scope.add = function(problem){
-    ProblemData.addOwn(problem);
-  };
-}
+    $scope.addProblem = function(problem){
+
+      //TODO needs to add to Dashboard
+      ProblemData.addOwn(problem)
+        .then(function(){
+          ProblemData.getOwn()
+            .then(function(problems){
+              $scope.problems = problems;
+            });
+        });
+    };
+
+    $scope.username = JSON.parse($window.localStorage.getItem('com.recalljs')).username;
+  });

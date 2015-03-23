@@ -1,6 +1,19 @@
 <div class="container">
-  <h1>This is the library!</h1>
-  <div class="list-group">
-    <a ng-repeat="problem in problems" class="list-group-item" ng-click="add(problem)">{{ problem.title }}</a>
-  </div>
+  <h1>{{ username }}'s library</h1>
+
+  <table id="userLibrary" class="table table-condensed">
+    <thead>
+      <tr>
+        <th class="text-center">Title</th>
+        <th class="text-center">Prompt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="problem in problems" ng-click="remove(problem)">
+        <td>{{ problem.title }}</td>
+        <td>{{ problem.prompt }}</td>
+        <td><button class="btn btn-lg btn-success btn-block" type="submit" ng-click="addProblem()">Add </button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
