@@ -43,8 +43,8 @@ ul.no-bullets {
   margin-right: 15px;
 }
 
-.icon {
-  float: right;
+.glyphicon-ok {
+  color: green;
 }
 
 /*
