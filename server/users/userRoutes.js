@@ -50,4 +50,8 @@ module.exports = function (app) {
       }
     });
   });
+
+  app.post('/update', function(req, res){
+    console.log(req.body);
+  });
 };
