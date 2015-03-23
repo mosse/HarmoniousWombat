@@ -1,10 +1,9 @@
 angular.module('RecallJS')
   .controller('LibraryController', function($window, $scope, Auth, ProblemData, LearningAlgo){
 
-    ProblemData.getOwn()
+    ProblemData.getAll()
       .then(function(problems){
         $scope.problems = problems;
-        console.log(problems);
       });
 
     $scope.addProblem = function(problem){
@@ -19,5 +18,5 @@ angular.module('RecallJS')
         });
     };
 
-    $scope.username = "TODO: Replace with actual username";
+    $scope.username = JSON.parse($window.localStorage.getItem('com.recalljs')).username;
   });
