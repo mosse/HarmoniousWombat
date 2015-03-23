@@ -22,7 +22,7 @@ angular.module('RecallJS')
 
     $scope.addTest = function(input, output){
       // only want to add a test input is unique
-      var newTest = {input: input, output: output};
+      var newTest = {input: JSON.parse(input), output: JSON.parse(output)};
       var found = false;
       $scope.tests.forEach(function(test){
         if (test.input === newTest.input) {
