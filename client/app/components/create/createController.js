@@ -1,5 +1,5 @@
 angular.module('RecallJS')
-  .controller('CreateController', function($scope, ProblemData){
+  .controller('CreateController', function($scope, $location, ProblemData){
     // TODO: Will want to have this as a Factory to share with
     // server and the Library
     $scope.problem = {};
@@ -45,6 +45,9 @@ angular.module('RecallJS')
       $scope.problem.tests = $scope.tests;
       $scope.problems.push($scope.problem);
       ProblemData.create($scope.problem);
+
+      // redirect to show user new view after problem creation
+      $location.path('/library');
     };
 
     // TODO: Refactor to use a service since it is repeated here
