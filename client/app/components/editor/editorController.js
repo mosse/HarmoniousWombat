@@ -68,7 +68,19 @@ angular.module('RecallJS')
     $scope.setRating = function(rating){
       console.log("Problem was rated:", rating);
       // TODO: Send data about problem back to server
-      var user = $window.localstorage.getItem('com.recalljs');
+      var user = JSON.parse($window.localStorage.getItem('com.recalljs'));
+      var attempt = {
+        timeSubmitted: Date.now(),
+        rating: rating,
+        percentTestsPassed: 100,
+        timeStarted: Date.now(),
+        numRuns: 1,
+      };
+      user.problems.forEach(function(item){
+        if ($scope.title === item.title){
+          item.attempts.push(attempt);
+        }
+      });
       $http({
         method: 'POST',
         url: '/users/update',
