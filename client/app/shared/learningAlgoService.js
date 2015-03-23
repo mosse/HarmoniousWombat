@@ -76,7 +76,6 @@ function LearningAlgo($window) {
   }
 
   function calculateWeight(problem) {
-    console.log(problem);
     return calcAgeWeight(problem) * calcProgressWeight(problem) *
            calcEffortWeight(problem);
   }
@@ -87,7 +86,7 @@ function LearningAlgo($window) {
 
     // error checking if user has not attempted problem
     if (attempts.length === 0) {
-      return 1;
+      return 10;
     }
 
     // identify number of days since last attempt
@@ -104,7 +103,7 @@ function LearningAlgo($window) {
     var attempts = problem.attempts;
     // error checking if user has not attempted problem
     if (attempts.length === 0) {
-      return 1;
+      return 10;
     }
 
     // calculate and return weight
@@ -137,7 +136,7 @@ function LearningAlgo($window) {
 
     // error checking if user has not attempted problem
     if (attempts.length === 0) {
-      return 1;
+      return 10;
     }
 
     var mostRecentAttempt = attempts.slice(-1)[0];
