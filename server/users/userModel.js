@@ -12,10 +12,10 @@ var UserSchema = new mongoose.Schema({
     tests: Array,
     solution: String,
     attempts: [{
-      timeSubmitted:Date,
+      timeSubmitted:Number,
       rating: Number,
       percentTestsPassed: Number,
-      timeStarted: Date,
+      timeStarted: Number,
       numRuns: Number,
     }],
   }],
@@ -48,21 +48,21 @@ UserSchema.pre('save', function (next) {
           ],
           solution: 'var fizzBuzz = function(n){\n' +
               '  var result = "";\n' +
-              '\n' +  
-              '  for (var i = 1; i <= n; i++) {\n' + 
-              '    if (i % 5 === 0 && i % 3 === 0) {\n' + 
+              '\n' +
+              '  for (var i = 1; i <= n; i++) {\n' +
+              '    if (i % 5 === 0 && i % 3 === 0) {\n' +
               '      result += "FIZZBUZZ ";\n' +
               '    } else if (i % 3 === 0) {\n' +
               '      result += "FIZZ ";\n' +
               '    } else if (i % 5 === 0) {\n' +
               '      result += "BUZZ ";\n' +
-              '    } else {\n' + 
+              '    } else {\n' +
               '      result += i + " ";\n' +
               '    }\n' +
-              '  }\n' + 
-              
+              '  }\n' +
+
               '  return result.slice(0,-1);\n' +
-              '};'  
+              '};'
         }
       ]
       next();

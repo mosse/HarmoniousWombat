@@ -76,6 +76,7 @@ function LearningAlgo($window) {
   }
 
   function calculateWeight(problem) {
+    console.log(problem);
     return calcAgeWeight(problem) * calcProgressWeight(problem) *
            calcEffortWeight(problem);
   }

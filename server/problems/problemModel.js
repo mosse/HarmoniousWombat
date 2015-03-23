@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var ProblemSchema = new mongoose.Schema({
   title: String,
   prompt: String,
-  functionName: String,
+  funcName: String,
   examples: [String],
   tests: Array,
   solution: String,

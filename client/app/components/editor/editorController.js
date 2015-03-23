@@ -1,7 +1,7 @@
 //TODO: Do we need to inject the CodeMirror dependency directly?
 
 angular.module('RecallJS')
-  .controller('EditorController', function($scope, $location, LearningAlgo, CodeEval){
+  .controller('EditorController', function($window, $scope, $location, LearningAlgo, CodeEval, $http){
 
     init();
 
@@ -68,6 +68,28 @@ angular.module('RecallJS')
     $scope.setRating = function(rating){
       console.log("Problem was rated:", rating);
       // TODO: Send data about problem back to server
+      var user = JSON.parse($window.localStorage.getItem('com.recalljs'));
+      var attempt = {
+        timeSubmitted: Date.now(),
+        rating: rating,
+        // TODO: make percent work
+        percentTestsPassed: 100,
+        timeStarted: Date.now(),
+        // TODO: make numrums work
+        numRuns: 1,
+      };
+      user.problems.forEach(function(item){
+        if ($scope.title === item.title){
+          item.attempts.push(attempt);
+        }
+      });
+      // We want to update the localstorage so next time it gets it, it will have the updated attempts;
+      $window.localStorage.setItem('com.recalljs', JSON.stringify(user));
+      $http({
+        method: 'POST',
+        url: '/users/update',
+        data: user
+      });
 
       // remove current problem and refresh view
       LearningAlgo.currProblem = null;
