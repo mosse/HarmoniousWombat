@@ -4,12 +4,13 @@ angular.module('RecallJS')
     ProblemData.getOwn()
       .then(function(problems){
         $scope.problems = problems;
+        console.log(problems);
       });
 
     $scope.addProblem = function(problem){
 
       //TODO needs to add to Dashboard
-      ProblemData.removeOwn(problem)
+      ProblemData.addOwn(problem)
         .then(function(){
           ProblemData.getOwn()
             .then(function(problems){

@@ -51,9 +51,14 @@ ul.no-bullets {
 
 .site-promo {
   /*padding: 12em 0 5em;*/
-  background-color: #f2f2f2;
+  background: url(../img/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin-bottom: 30px;
   padding: 5em 0;
+  color: white;
 }
 
 .site-promo h1 {
