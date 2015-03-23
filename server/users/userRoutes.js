@@ -37,14 +37,14 @@ module.exports = function (app) {
           username: username,
           password: password
         };
-        User.create(newUser, function(err){
+        User.create(newUser, function(err, data){
           if (err){
             console.log('Failed to sign up:', username);
             return next('Internal Error');
           } else {
             console.log('Signed up:', username);
             var token = jwt.encode(username, 'secret');
-            res.json({token: token, data: newUser});
+            res.json({token: token, data: data});
           }
         });
       }
