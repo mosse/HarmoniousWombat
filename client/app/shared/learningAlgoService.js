@@ -100,6 +100,11 @@ function LearningAlgo($window) {
   // helper function to calculate the average of the most recent ratings
   function calcAverageRating(attempts, numToAverage) {
 
+    // error checking if no attempts have occurred
+    if (attempts.length === 0) {
+      return 0;
+    }
+
     // identify the most recent ratings
     var recentAttempts = attempts.slice(-numToAverage);
     var ratings = recentAttempts.map(function(attempt){
