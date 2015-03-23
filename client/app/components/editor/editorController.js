@@ -72,8 +72,10 @@ angular.module('RecallJS')
       var attempt = {
         timeSubmitted: Date.now(),
         rating: rating,
+        // TODO: make percent work
         percentTestsPassed: 100,
         timeStarted: Date.now(),
+        // TODO: make numrums work
         numRuns: 1,
       };
       user.problems.forEach(function(item){
@@ -81,6 +83,8 @@ angular.module('RecallJS')
           item.attempts.push(attempt);
         }
       });
+      // We want to update the localstorage so next time it gets it, it will have the updated attempts;
+      $window.localStorage.setItem('com.recalljs', JSON.stringify(user));
       $http({
         method: 'POST',
         url: '/users/update',

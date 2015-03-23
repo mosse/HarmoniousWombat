@@ -52,6 +52,10 @@ module.exports = function (app) {
   });
 
   app.post('/update', function(req, res){
-    console.log(req.body);
+    User.findOne({username: req.body.username}, function(err, data){
+      data.update({problems: req.body.problems}, function(){
+        console.log(data.problems);
+      });
+    });
   });
 };
