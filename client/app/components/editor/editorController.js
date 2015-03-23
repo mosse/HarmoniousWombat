@@ -44,7 +44,7 @@ angular.module('RecallJS')
       };
 
       $scope.code = "var " + problem.functionName + " = function(){/*YOUR CODE HERE*/};";
-      $scope.solution = 'TODO: We need a solution on problem object';
+      $scope.solution = problem.solution
     }
 
     $scope.testResults = function(){
