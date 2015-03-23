@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>{{ username }}'s library</h1>
+  <h1>Library</h1>
 
   <table id="userLibrary" class="table table-condensed">
     <thead>
@@ -9,10 +9,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="problem in problems" ng-click="remove(problem)">
+      <tr ng-repeat="problem in problems">
         <td>{{ problem.title }}</td>
         <td>{{ problem.prompt }}</td>
-        <td><button class="btn btn-lg btn-success btn-block" type="submit" ng-click="addProblem()">Add </button></td>
+        <td><button class="btn btn-lg btn-success btn-block" ng-click="addProblem(problem)">Add </button></td>
       </tr>
     </tbody>
   </table>
