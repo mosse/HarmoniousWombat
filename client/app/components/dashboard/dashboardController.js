@@ -16,7 +16,7 @@ angular.module('RecallJS')
         });
     };
 
-    $scope.username = "TODO: Replace with actual username";
+    $scope.username = JSON.parse($window.localStorage.getItem('com.recalljs')).username;
     $scope.calcWeight = LearningAlgo.calculateWeight;
     $scope.lastAttempted = LearningAlgo.getLastAttemptDate;
     $scope.avgRating = LearningAlgo.calcAverageRating;
