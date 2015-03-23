@@ -25,10 +25,8 @@ module.exports = function (app) {
   });
 
   app.post('/create', function(req, res){
-    console.log(req.body);
     Problem.create(req.body, function(err, data){
       res.send();
-      console.log(data);
     });
   });
 

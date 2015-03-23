@@ -4,7 +4,6 @@ var ProblemSchema = new mongoose.Schema({
   title: String,
   prompt: String,
   funcName: String,
-  soln: String,
   examples: [String],
   tests: Array,
   solution: String,
