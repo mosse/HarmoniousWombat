@@ -20,7 +20,6 @@ angular.module('RecallJS')
     $scope.calcWeight = LearningAlgo.calculateWeight;
     $scope.lastAttempted = LearningAlgo.getLastAttemptDate;
     $scope.avgRating = LearningAlgo.calcAverageRating;
-    console.log($scope.problems);
 
     // Requirements
     //   1. Use ProblemData.getOwn() to obtain user's problems
