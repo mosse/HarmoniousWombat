@@ -7,16 +7,7 @@ angular.module('RecallJS')
       });
 
     $scope.addProblem = function(problem){
-
-      //TODO needs to add to Dashboard
       ProblemData.addOwn(problem)
-        .then(function(){
-          ProblemData.getOwn()
-            .then(function(problems){
-              $scope.problems = problems;
-            });
-        });
     };
 
-    $scope.username = JSON.parse($window.localStorage.getItem('com.recalljs')).username;
   });
