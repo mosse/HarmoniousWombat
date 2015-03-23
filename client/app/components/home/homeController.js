@@ -1,7 +1,7 @@
 angular.module('RecallJS')
   .controller('HomeController', HomeController);
 
-function HomeController($scope, $window, $location, Auth, UserData){
+function HomeController($scope, $window, $location, Auth){
 
   $scope.user = {};
   $scope.error = undefined;
@@ -10,8 +10,7 @@ function HomeController($scope, $window, $location, Auth, UserData){
     $scope.error = undefined;
     Auth.login($scope.user)
       .then(function (data) {
-        $window.localStorage.setItem('com.recalljs', data.token);
-        UserData.data = data.data;
+        $window.localStorage.setItem('com.recalljs', JSON.stringify(data.data));
         $location.path('/dashboard');
       })
       .catch(function (error) {
@@ -23,8 +22,7 @@ function HomeController($scope, $window, $location, Auth, UserData){
     $scope.error = undefined;
     Auth.signup($scope.user)
       .then(function (data) {
-        $window.localStorage.setItem('com.recalljs', data.token);
-        UserData.data = data.data;
+        $window.localStorage.setItem('com.recalljs', JSON.stringify(data.data));
         $location.path('/dashboard');
       })
       .catch(function (error) {

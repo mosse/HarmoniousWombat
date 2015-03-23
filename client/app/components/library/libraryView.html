@@ -1,3 +1,6 @@
 <div class="container">
   <h1>This is the library!</h1>
+  <div class="list-group">
+    <a ng-repeat="problem in problems" class="list-group-item" ng-click="add(problem)">{{ problem.title }}</a>
+  </div>
 </div>

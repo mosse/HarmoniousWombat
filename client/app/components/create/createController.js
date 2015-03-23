@@ -1,5 +1,5 @@
 angular.module('RecallJS')
-  .controller('CreateController', function($scope){
+  .controller('CreateController', function($scope, ProblemData){
     // TODO: Will want to have this as a Factory to share with
     // server and the Library
     $scope.problem = {};
@@ -53,7 +53,7 @@ angular.module('RecallJS')
       $scope.problem.examples = $scope.examples;
       $scope.problem.tests = $scope.tests;
       $scope.problems.push($scope.problem);
-      console.log($scope.problems);
+      ProblemData.create($scope.problem);
     };
 
     // TODO: Refactor to use a service since it is repeated here

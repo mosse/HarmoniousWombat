@@ -42,7 +42,7 @@ angular.module('RecallJS', ['ngRoute', 'ui.bootstrap', 'ui.codemirror'])
   .factory('AttachTokens', function ($window) {
     var attach = {
       request: function (object) {
-        var jwt = $window.localStorage.getItem('com.shortly');
+        var jwt = $window.localStorage.getItem('com.recalljs');
         if (jwt) {
           object.headers['x-access-token'] = jwt;
         }

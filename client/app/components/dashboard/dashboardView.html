@@ -1,3 +1,7 @@
 <div class="container">
   <h1>This is the dashboard!</h1>
+  <h2> My problems: </h2>
+  <div class="list-group">
+    <a ng-repeat="problem in problems" class="list-group-item" ng-click="remove(problem)">{{ problem.title }}</a>
+  </div>
 </div>

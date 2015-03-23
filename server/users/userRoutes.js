@@ -50,8 +50,4 @@ module.exports = function (app) {
       }
     });
   });
-
-  app.get('/signedin', function(req, res, next){
-    next();
-  });
 };
