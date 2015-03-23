@@ -81,8 +81,16 @@ function LearningAlgo($window) {
   }
 
   function calcAgeWeight(problem) {
+    
+    var attempts = problem.attempts;
+    
+    // error checking if user has not attempted problem
+    if (attempts.length === 0) {
+      return 1;
+    }
+
     // identify number of days since last attempt
-    var timeLastAttempt = problem.attempts.slice(-1)[0].timeSubmitted; // assuming last attempt is most recent
+    var timeLastAttempt = attempts.slice(-1)[0].timeSubmitted; // assuming last attempt is most recent
     var currTime = (new Date()).getTime(); // in milliseconds
     var daysSince = convertMStoDAYS(currTime - timeLastAttempt);
 
@@ -91,6 +99,13 @@ function LearningAlgo($window) {
   }                                  // since the last attempt
 
   function calcProgressWeight(problem) {
+    
+    var attempts = problem.attempts;
+    // error checking if user has not attempted problem
+    if (attempts.length === 0) {
+      return 1;
+    }
+
     // calculate and return weight
     var avgRating = calcAverageRating(problem.attempts, 10); // calculate avg rating of last 10 attempts
     return Math.pow(0.5, 5 * avgRating); // weight will halve every time the
@@ -99,6 +114,11 @@ function LearningAlgo($window) {
 
   // helper function to calculate the average of the most recent ratings
   function calcAverageRating(attempts, numToAverage) {
+
+    // error checking if no attempts have occurred
+    if (attempts.length === 0) {
+      return 0;
+    }
 
     // identify the most recent ratings
     var recentAttempts = attempts.slice(-numToAverage);
@@ -112,7 +132,14 @@ function LearningAlgo($window) {
   }
 
   function calcEffortWeight(problem) {
-    var mostRecentAttempt = problem.attempts.slice(-1)[0];
+    var attempts = problem.attempts;
+    
+    // error checking if user has not attempted problem
+    if (attempts.length === 0) {
+      return 1;
+    }
+
+    var mostRecentAttempt = attempts.slice(-1)[0];
     var rating = mostRecentAttempt.rating;
     return rating ? 1 : 10; // if rating is non-zero, return 1, else 10
   }
@@ -140,6 +167,12 @@ function LearningAlgo($window) {
   // TODO: Refactor and place in a utilities or stats Service
   function getLastAttemptDate(problem) {
     var attempts = problem.attempts;
+
+    // error checking if user has not attempted problem
+    if (attempts.length === 0) {
+      return "Not yet attempted";
+    }
+
     var timeLastAttempt = attempts[attempts.length-1].timeSubmitted;
     return timeLastAttempt;
   }
