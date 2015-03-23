@@ -9,7 +9,7 @@ angular.module('RecallJS')
       // we only want to get a new problem if we don't have a current one. Otherwise,
       //   every time we switch routes (e.g., switching between library and practice),
       //   we will get a new problem, which we don't want
-      var problem = LearningAlgo.currProblem || LearningAlgo.getProblem();
+      var problem = LearningAlgo.getProblem();
 
       // error checking in case if no problems are present
       if (!problem) {

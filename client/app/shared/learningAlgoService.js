@@ -19,7 +19,7 @@ function LearningAlgo($window) {
   return exposed;
 
   function getProblem() {
-
+    problems = JSON.parse($window.localStorage.getItem('com.recalljs')).problems;
     // return null if no new problems available for the user
     if (problems.length === 0) {
       exposed.currProblem = null;
@@ -81,9 +81,9 @@ function LearningAlgo($window) {
   }
 
   function calcAgeWeight(problem) {
-    
+
     var attempts = problem.attempts;
-    
+
     // error checking if user has not attempted problem
     if (attempts.length === 0) {
       return 1;
@@ -99,7 +99,7 @@ function LearningAlgo($window) {
   }                                  // since the last attempt
 
   function calcProgressWeight(problem) {
-    
+
     var attempts = problem.attempts;
     // error checking if user has not attempted problem
     if (attempts.length === 0) {
@@ -133,7 +133,7 @@ function LearningAlgo($window) {
 
   function calcEffortWeight(problem) {
     var attempts = problem.attempts;
-    
+
     // error checking if user has not attempted problem
     if (attempts.length === 0) {
       return 1;
