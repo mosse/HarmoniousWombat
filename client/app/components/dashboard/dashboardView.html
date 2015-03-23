@@ -1,27 +1,34 @@
 <div class="container">
   <h1>{{ username }}'s Dashboard</h1>
-
-  <table id="userProblems" class="table table-condensed">
-    <thead>
-      <tr>
-        <th class="text-center">Title</th>
-        <th class="text-center">Prompt</th>
-        <th class="text-center"># of Attempts</th>
-        <th class="text-center">Average Rating</th>
-        <th class="text-center">Last Attempt</th>
-        <th class="text-center">Problem Weight</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- TODO: Order problems by weight -->
-      <tr ng-repeat="problem in problems" ng-click="remove(problem)">
-        <td>{{ problem.title }}</td>
-        <td>{{ problem.prompt }}</td>
-        <td>{{ problem.attempts.length }}</td>
-        <td>{{ avgRating(problem.attempts, 10) | number:2 }}</td>
-        <td>{{ lastAttempted(problem) | date:'shortDate' }}</td>
-        <td>{{ calcWeight(problem) | number:1 }} </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="panel panel-default">
+    <table id="userProblems" class="table table-striped table-bordered table-hover table-condensed">
+      <thead>
+        <tr>
+          <th class="text-center">Title</th>
+          <th class="text-center">Prompt</th>
+          <th class="text-center"># of Attempts</th>
+          <th class="text-center">Average Rating</th>
+          <th class="text-center">Last Attempt</th>
+          <th class="text-center">Problem Weight</th>
+          <th class="text-center">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- TODO: Order problems by weight -->
+<<<<<<< Updated upstream
+        <tr ng-repeat="problem in problems | orderBy:'calcWeight(problem)'">
+=======
+        <tr ng-repeat="problem in problems">
+>>>>>>> Stashed changes
+          <td>{{ problem.title }}</td>
+          <td>{{ problem.prompt }}</td>
+          <td>{{ problem.attempts.length }}</td>
+          <td>{{ avgRating(problem.attempts, 10) | number:2 }}</td>
+          <td>{{ lastAttempted(problem) | date:'shortDate' }}</td>
+          <td>{{ calcWeight(problem) | number:1 }} </td>
+          <td><span class="glyphicon glyphicon-remove" ng-click="remove(problem)" aria-hidden="true"></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

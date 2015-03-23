@@ -316,5 +316,7 @@ form {
   background-color: #83AF9B;
 }
 
-
+.glyphicon-remove {
+  color: red;
+}
 
