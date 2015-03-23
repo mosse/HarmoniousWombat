@@ -1,6 +1,6 @@
 # Recall.js
 
-> Recall.js uses spaced-repetition learning to help software engineers learn, practice, and remember technical interview questions.
+> Recall.js uses spaced-repetition learning to help software engineers learn, practice, and remember technical interview questions. It's available here: http://recalljs.azurewebsites.net
 
 ## Team
 
