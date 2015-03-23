@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <!-- TODO: Order problems by weight -->
-      <tr ng-repeat="problem in problems">
+      <tr ng-repeat="problem in problems" ng-click="remove(problem)">
         <td>{{ problem.title }}</td>
         <td>{{ problem.prompt }}</td>
         <td>{{ problem.attempts.length }}</td>
